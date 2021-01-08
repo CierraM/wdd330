@@ -2,32 +2,30 @@
 <html>
 
 <head>
-  <title>Story Writer</title>
+  <title>Week 01</title>
 
   <script>
-
-    function loadStory(){
+    function loadStory() {
       let storyName = document.getElementById('name_input').value;
       let storyHTML = localStorage.getItem(storyName);
       document.getElementById('story_editor').value = storyHTML;
     }
 
-    function saveStory(){
+    function saveStory() {
       let storyName = document.getElementById('name_input').value;
       let storyHTML = document.getElementById("story_editor").value;
       localStorage.setItem(storyName, storyHTML);
     }
 
-    function displayStory(){
+    function displayStory() {
       let storyHTML = document.getElementById("story_editor").value;
       document.getElementById("story_display").innerHTML = storyHTML;
     }
-
   </script>
 
   <style>
-    textarea{
-      width:800px;
+    textarea {
+      width: 800px;
       height: 250px;
       background-color: lightyellow;
     }
@@ -35,15 +33,68 @@
 </head>
 
 <body>
-  <h1>Story Editor</h1>
-  Story Name:<input type="text" id="name_input">
-  <section>
-    <button onclick="loadStory()">Find and Edit it</button>
-    <button onclick="saveStory()">Save It</button>
-    <button onclick="displayStory()">Display It</button>
-  </section>
-  <textarea name="" id="story_editor" placeholder="Write a totally awesome story here." cols="30" rows="10"></textarea>
-  <section id="story_display"></section>
+  <h1>Week 01 Notes and Practice</h1>
+  <div>
+    <h2>Story Editor</h2>
+    Story Name:<input type="text" id="name_input">
+    <section>
+      <button onclick="loadStory()">Find and Edit it</button>
+      <button onclick="saveStory()">Save It</button>
+      <button onclick="displayStory()">Display It</button>
+    </section>
+    <textarea name="" id="story_editor" placeholder="Write a totally awesome story here." cols="30"
+      rows="10"></textarea>
+    <section id="story_display"></section>
+  </div>
+  <div>
+    <h2>Master Mobile UX Course Notes</h2>
+    <h3>Rewire your brain</h3>
+    <p><em>If you design for the smallest, least powerful device first, then you will focus on the content, and your
+        core functionality. That leads to simple, beautiful apps. If you do it the other way around, it'll be like
+        trying to put a marshmallow into a piggy bankd, which is neither simple, nor beautiful.</em><br>-Joel Marsh</p>
+    <p>Do mobile first because people will be way more likely to be using the mobile device. It's easier to grow things
+      than shrink them.</p>
+    <p>Responsive != mobile first</p>
+    <h3>Understand Users</h3>
+    <p><em>It's really hard to design products by focus groups. a lot of times people don't know what they want until
+        you show it to them. </em><br>-Steve Jobs</p>
+    <p>People don't know what they want. Be there to show them where to go and what to do. Be useful, help them
+      accomplish their purpose. Be quick. Nobody has an attention span these days. Make interactions smooth and
+      seamless. Delete extra steps they don't need.</p>
+    <p>Reachability - people rely on their thumbs to reach things on their phone. Make important things easy to reach.
+    </p>
+    <p>Speed - even .5 second can make a huge difference. And a lot of people don't have fast internet.</p>
+    <p>Assets - Use svg and webfonts when possible. Optimize and minify whenever possible. </p>
+    <h3>Strategic Menu Design</h3>
+    <p>Be empathetic to users. They are not always good at figuring out unintuitive software. </p>
+    <p>Why is menu always all the way at the top where you can't even reach it?? Put it down at the bottom where the
+      thumb can get it. </p>
+    <p>Problems with the hamburger menu - not everyone knows what that is! The word "menu" with the border makes a lot
+      more sense.</p>
+    <h3>Mobile Friendly Forms</h3>
+    <p>Problems with forms: Too much uncessary information that make the form too long. </p>
+    <p>Things to try: ditch the extra labels. Make inputs taller for thumbs. </p>
+    <p>Float labels are cool.</p>
+    <p>Note to self: learn <a href="https://css-tricks.com/float-labels-css/">how to make a float label</a> </p>
+    <p>Make bigger checkboxes</p>
+    <p>Ask the user what they want. Then only make them fill out relevant info.</p>
+    <p>Comments: make placeholder specific to what you want</p>
+    <p>paginate forms. And use a progress indicator.</p>
+    <p>Also enable auto complete:<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete">See
+        here for more info.</a></p>
+    <p>Passwords - masking can make it frustrating. Have option to show or hide password. </p>
+    <p>Credit cards - Auto spacing is cool for easy entry. Maybe even put everything in the same input. </p>
+    <p>Choose which keyboard to use on mobile. If it's just numbers, the letter keyboard will be cumbersome. <a
+        href="https://www.smashingmagazine.com/2018/08/ux-html5-mobile-form-part-2/">Helpful article</a></p>
+    <p>Make phonenumbers callable by putting them in an anchor tag. No more copy/paste!</p>
+    <h3>Better Mobile Advertising</h3>
+    <p>Research to understand the way people use mobile devices.</p>
+    <p>Too many ads are very very annoying on mobile.</p>
+    <p>How to make mobile ads better:</p>
+    <p>Make them very small and simple. Not taking up the whole screen. </p>
+    <p>Cool idea: put a window to show a full screen add between the content. </p>
+    <p>Just don't use pop ups. They came for content, not ads. </p>
+  </div>
 </body>
 
 </html>
