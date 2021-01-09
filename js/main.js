@@ -17,3 +17,7 @@ links.map( link => {
     li.appendChild(a);
     container.appendChild(li);
 })
+
+let year = new Date().getFullYear();
+
+document.getElementById('copyright').innerHTML = `&copy; ${year} Cierra Morris`;
