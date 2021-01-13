@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 02 Notes</title>
+    <link rel="stylesheet" href="week02.css">
+</head>
+
+<body>
+    <h1>Week 02 Notes</h1>
+    <h2>EJS Chapter 2: Program Structure</h2>
+    <h3>Expressions and Statements</h3>
+    <p>See JS file as well</p>
+    <p>Expression: produces a value</p>
+    <p>Statement: full statement, includes semicolon</p>
+    <h3>Bindings</h3>
+    <img src="https://cdn11.bigcommerce.com/s-3b5vpig99v/products/498499/images/434811/Tentacle__09166.1590611949.386.513.jpg?c=2 alt="
+        Tentacles">
+    <p>Binding means variable. It is the way the code remembers new stuff</p>
+    <p>'let' means: we are going to define a binding</p>
+    <p>'=' operator means, lets disconnect this from current binding and assign it to a new one.</p>
+    <p>Bindings are tentacles, not boxes. They grasp, not hold values. Multiple bindings can be attached to the same
+        value.</p>
+    <p>Undefined = the tentacle is holding nothing</p>
+    <script>
+        //define multiple bindings in one statement:
+        let one = 1,
+            two = 2;
+    </script>
+    <p>var and const work too, but in different ways</p>
+    <p>
+        Some words you can't use for binding names: <Br> break case catch class const continue debugger default
+        delete do else enum export extends false finally for
+        function if implements import interface in instanceof let
+        new package private protected public return static super
+        switch this throw true try typeof var void while with yield
+    </p>
+    <p>Executing a function: Invoking, calling, or applying it.</p>
+    <ul>Useful Functions
+        <li>Number.isNaN - returns true if arg is NaN</li>
+    </ul>
+    <p>{} mean "this is a block of code"</p>
+    <script>
+        //Do loops: like a while loop.
+        // let yourName;
+        // do {
+        //     // yourName = prompt("Who are you?");
+        // } while (!yourName);
+        // console.log(yourName)
+    </script>
+    <h3>Loops</h3>
+    <ul>Helpful Loop things:
+        <li>Break: stop the loop</li>
+        <li>Continue: Stop this iteration of the loop and go to the next iteration.</li>
+    </ul>
+    <script>
+        //Switch Statement Review: 
+        //     switch (prompt("What is the weather like?")) {
+        //         case "rainy":
+        //             console.log("Remember to bring an umbrella.");
+        //             break;
+        //         case "sunny":
+        //             console.log("Dress lightly.");
+        //         case "cloudy":
+        //             console.log("Go outside.");
+        //             break;
+        //         default:
+        //             console.log("Unknown weather type!");
+        //             break;
+        //     }
+        // 
+    </script>
+
+    <hr>
+    <h2>EJS Chapter 3: Functions</h2>
+    <h3>Bindings and Scopes</h3>
+    <p>Each binding has scope - which part of the progam in which it is visible.</p>
+    <p>If it's not inside a block or function, it has global scope.</p>
+    <p>Inside a block, bindings are local. They are recreated every time that block is used.</p>
+    <p>'let' and 'const' are always local to the block in which they are declared. Only the code in that block can see
+        it. </p>
+    <p>'Var' is only local to a function. If it's not in a function, it's global.</p>
+    <h3>Nested Scope</h3>
+    <p>Scope can be many levels deep if you have blocks within blocks. </p>
+    <h3>Functions as Values</h3>
+    <p>myFunction: just function name.</p>
+    <p>myFunction(): calling the function.</p>
+    <script>
+        //Multiple ways to write functions:
+        //Functions as values:
+        let myFunction = function () {
+
+        }
+        //Functions Declaration: 
+        function myNewFunction() {
+
+        }
+
+        //Arrow Functions
+        const myArrowFunction = () => {
+
+        }
+    </script>
+    <p>The difference between function expression and function declaration is that function declaration can be called
+        before it is defined. Function expresion cannot.</p>
+    <h3>The Call Stack</h3>
+    <p>The computer must remember where a function is called from so it knows where to go when it is done.</p>
+    <p>Call Stack: place where computer stores context history. It makes a stack of what functions are being run, then
+        takes it off when it is finished.</p>
+    <p>Blwing the stack: when the computer crahses because there is no memory left in the call stack.</p>
+    <script>
+        //An example of how to blow the stack (do not run this)
+        // function chicken(){
+        //     return egg();
+        // }
+        // function egg(){
+        //     return chicken();
+        // }
+        // console.log(chicken() + " came first.");
+    </script>
+    <h3>Optional Arguments</h3>
+    <p>If there are too many arguments, JS ignores the extra.</p>
+    <p>If there are too few, the missing ones are assigned undefined</p>
+    <p>You can even assign a default value with = next to a parameter.</p>
+    <h3>Closure</h3>
+    <p>What happens to local bindings when the function call that created them is no longer active??</p>
+    <script>
+        //example:
+        function wrapValue(n) {
+            let local = n;
+            return () => local;
+        }
+
+        let wrap1 = wrapValue(1);
+        let wrap2 = wrapValue(2);
+        console.log(wrap1());
+        // → 1
+        console.log(wrap2());
+        // → 2
+    </script>
+    <p>You can still access these bindings.</p>
+    <p>A function that references bindings from local scopes around it is called a closure.</p>
+    <script>
+        //This is interesting: A function to create another function for multiplying.
+        function multiplier(factor) {
+            return number => number * factor;
+        }
+
+        let twice = multiplier(2);
+        console.log(twice(5));
+        // → 10
+    </script>
+    <p>Think of it this way: Function values not only contain the code in their body, but also any needed stuff from the
+        environment in which they were created.</p>
+    <h3>Recursion</h3>
+    <p>A function can call itself, as long as it doesn't do it too many times that it overflows that stack.</p>
+    <script>
+        //recursive function example: 
+        function power(base, exponent) {
+            if (exponent == 0) {
+                return 1;
+            } else {
+                return base * power(base, exponent - 1);
+            }
+        }
+
+        console.log(power(2, 3));
+        // → 8
+    </script>
+    <p>However, looping is normally faster.</p>
+    <p>Use recursive function in cases where you may need to explore several branches of the same problem.</p>
+    <p>Consider this puzzle: by starting from the number 1 and repeatedly either adding 5 or multiplying by 3, an
+        infinite set of numbers can be produced. How would you write a function that, given a number, tries to find a
+        sequence of such additions and multiplications that produces that number?</p>
+    <script>
+        //A recursive solution
+        function findSolution(target) {
+            function find(current, history) {
+                if (current == target) {
+                    return history;
+                } else if (current > target) {
+                    return null;
+                } else {
+                    return find(current + 5, `(${history} + 5)`) ||
+                        find(current * 3, `(${history} * 3)`);
+                }
+            }
+            return find(1, "1");
+        }
+
+        console.log(findSolution(24));
+        // → (((1 * 3) + 5) * 3)
+    </script>
+    <h3>Growing Functions</h3>
+    <p>How difficult it is to find a good name for a function is a good indication of how clear a concept it is that
+        you're trying to wrap.</p>
+    <p>Don't waste time adding functionality that would not ever be useful</p>
+    <h3>Functions and Side Effects</h3>
+    <p>Some functions are used more for their side effects than for their return values</p>
+    <p>However, you'll probably use functions with return values more than those with side effects</p>
+    <p>Pure function: something that doesn't produce side effects or rely on side effects of other code. Doesn't read
+        global bindings. It is completely self sufficient. These are the most useful kinds of functions and can be
+        easily tested.</p>
+
+    <hr>
+    <h2>EJS Chapter 4: Objects and Arrays</h2>
+    <h3>Properties</h3>
+    <p>Null and undefined have no properties</p>
+    <p>Two ways to access properties: dot and [].</p>
+    <p>With dot notation, the word after the . is the literal name of the property</p>
+    <p>With bracket notation, the stuff inside the brackets is evaluated to the name of the property.</p>
+    <p>An advantage to using bracket notation is if the property name doesn't follow the rules for binding names, such
+        as numbers.</p>
+    <p>The advantage to using the dot notation is that it is easier to write in cases where it can be used.</p>
+    <p>Properties can be accessed by value.prop</p>
+
+    <h3>Methods</h3>
+    <p>Method: holds a function value.</p>
+    <p>Object properties with invalid names must be quoted.</p>
+    <p>"in" operator will tell if the object has a property with that name.</p>
+    <p>Object.keys returns an array of the object property names.</p>
+    <p>Object.assign copies all properties from one object into another. </p>
+    <p>An array is just an object that uses a series of numbers as keys.</p>
+
+    <h3>Mutability</h3>
+    <p>Primitave values are immutable. you can't change it really. Object contents can change, and it will still be the
+        same object.</p>
+    <p>Objects have different behavior. You can't just copy the value from one object into another. The new variable
+        will still point to the same location in memory. Two objects that have the same contents are not considered ==
+    </p>
+    <p>Javascript has no built in operator to compare only the contents of two variables.</p>
+
+    <h3>More Array Stuff</h3>
+    <ul>Useful array methods:
+        <li>push: add element to end of array</li>
+        <li>pop: remove element from end of array</li>
+        <li>unshift: add element to beginning of array</li>
+        <li>shift: remove element from beginning of array</li>
+        <li>indexOf: returns index at which requested value is located</li>
+        <li>lastIndexOf: does the same thing, but starts from the end of the array</li>
+        <li>slice: takes start and end indexes and returns the elements between them</li>
+        <li>concat: glues arrays together</li>
+    </ul>
+    <ul>Useful String methods:
+        <li>slice</li>
+        <li>indexOf - in strings it can find the index of a substring with multiple characters</li>
+        <li>trim: removes whitespace</li>
+        <li>padStart: adds padding characters up to a certain number of characters</li>
+        <li>split: split on occurence of a substring</li>
+        <li>join: joins strings together with optional separators</li>
+        <li>repeat: creates new string with glued together copies of the original string</li>
+        <li>length</li>
+    </ul>
+
+    <h3>Rest Parameters</h3>
+    <p>Sometimes you want a function to accept any number of arguments</p>
+    <p>put three dots before teh function's last parameter</p>
+    <p>This creates an array containing all further arguments</p>
+    <p>You can put the triple dot operator into another array as well. This inserts another array into it.</p>
+
+    <h3>The Math Object</h3>
+    <p>Math object exists to give a global binding to all the useful math things, to avoid polluting the namespace.</p>
+    <p>It is traditional to write constant values (like PI) in all caps</p>
+
+    <h3>Destructuring</h3>
+    <p>I need to learn more about this.</p>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment</a>
+
+    <h3>JSON</h3>
+    <ul>JSON rules:
+        <li>All property names need double quotes</li>
+        <li>Only simple data expressoins are allowed - no computations or comments</li>
+        </ul>
+        <p>Remember: JSON.stringify and JSON.parse</p>
+
+    <script src="js/notes.js"></script>
+</body>
+
+</html>

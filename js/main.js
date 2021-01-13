@@ -2,7 +2,12 @@ const links = [
     {
     label: "Week 01 Notes",
     url: "./week01/index.html"
-    }
+    },
+    {
+        label: "Week 02 Notes",
+        url: "./week02/index.html"
+    },
+    
 ];
 
 const container = document.getElementById('links');
