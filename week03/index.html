@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Week 03 Notes</h1>
+    <section>
+        <h2>JS Ninja chapter 5: Objects</h2>
+        <p>Everything is a primitave data type or an object.</p>
+        <p>Arrays are objects. Functions are objects. You can also create your own objects.</p>
+        <h3>Object Literals</h3>
+        <p>Method = function that is a value in an object</p>
+        <p>Object literal:</p>
+        <p>const spiderman = {};</p>
+        <p>Constructor Function: *not recommended*</p>
+        <p>const spiderman = new Object();</p>
+        <p>Shorthand ES6 way of creating objects: see code</p>
+        <script>
+            const name = "Iron Man";
+            const realName = 'Tony Stark';
+
+            const ironMan = {
+                name,
+                realName
+            };
+        </script>
+
+        <h3>Computed Properties</h3>
+        <p>Use [] to compute values to access properties</p>
+        <p>You can also use symbols as keys</p>
+        <p>Javascript symbols: <a
+                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol</a>
+        </p>
+        <p>Symbol() function returns a value of type symbol. Every symbol value returns unique. Even if they have the
+            same name.</p>
+        <p>Using symbols as property keys prevents name clashes.</p>
+        <p>Question: But wouldn't using symbols with the same name still cause confusion when you try to access them?
+        </p>
+
+        <h3>Checking if Properties or Methods Exist</h3>
+        <p>Use the in operator</p>
+        <p>example: 'city' in superman;</p>
+        <p>hasOwnProperty() method: check whether an object has this property for itself, rather than having it as
+            inherited from another object.</p>
+
+        <h3>Finding all the properties of an object:</h3>
+        <p>Use a for loop to loop through all the properties.</p>
+        <p>Cool ES2017 things:</p>
+        <p>In addition to object.keys, you can use object.values to return a list of values. Or Object.entries to get an
+            array of key-value pairs.</p>
+        <p>See code.</p>
+        <script>
+            for (const [key, value] of Object.entries()) {
+                console.log(`${key}: ${value}`)
+            }
+        </script>
+
+        <h3>Removing Properties</h3>
+        <p>delete superman.fly</p>
+
+        <h3>Nested Objects</h3>
+        <p>Just use multiple dot notations. Or a combination of dot and bracket even.</p>
+        <p>Remember: objects are copied by reference. If a variable is assigned to an object taht exists, it will just
+            point to the same spot in memory. Changes to either will affect the same thing.</p>
+        <h3>Objects as Parameters to Functions</h3>
+        <p>You can make named parameters in case the right ones aren't passed in. This provides a default.</p>
+
+        <h3>this</h3>
+        <p>this refers to the object it is in.</p>
+        <p>Use this inside methods to gain access to the object's other properties.</p>
+        <p>Code example</p>
+        <script>
+            const dice = {
+                sides: 6,
+                roll() {
+                    return Math.floor(this.sides * Math.random() + 1)
+                }
+            }
+        </script>
+
+        <h3>Namespacing</h3>
+        <p>To avoid naming collision in the same scope, use object literals to create namespace. This basically makes
+            more scopes for you.</p>
+        <p>For example, create an object to hold all your math functions.</p>
+
+        <h3>Built in Objects</h3>
+        <h4>JSON</h4>
+        <p>parse() method takes JSON and returns an object </p>
+        <p>stringify() method takes object and returns JSON</p>
+        <p>JSON can't use functions. they are also just turned to strings.</p>
+        <p>You can also add a space argument that will add new lines between each pair</p>
+        <p>ex: JSON.stringify(myObject, null, " ");</p>
+
+        <h4>The Math Object</h4>
+        <ul>Constants:
+            <li>Math.PI</li>
+            <li>Math.SQRT2 (the square root of 2)</li>
+            <li>Math.SQRT1_2 (the reciprocal of the square root of 2)</li>
+            <li>Math.E</li>
+            <li>Math.LN2 (Natural logarithm of 2)</li>
+            <li>and more that I will probably never use...</li>
+        </ul>
+
+        <ul>Mathematical Methods
+            <li>Math.abs() (absolute value)</li>
+            <li>Math.ceil() (round up)</li>
+            <li>Math.floor() (round down)</li>
+            <li>Math.round() (normal rounding)</li>
+            <li>Math.trunc() (truncates at the decimal point)</li>
+            <li>Math.exp() (raise a number to the power of e)</li>
+            <li>Math.pow() (raise first argument to the power of second)</li>
+            <li>Math.sqrt()</li>
+            <li>Math.cbrt() (ES6: take the cube root)</li>
+            <li>Math.hypot() (calculates hypotenuse of a right angle triange)</li>
+            <li>Math.log() (returns natural log)</li>
+            <li>Math.log2(), Math.log10()</li>
+            <li>Math.max() (returns max of arguments)</li>
+            <li>Math.min() (returns min of arguments)</li>
+            <li>Also standard trig stuff</li>
+            <li>Math.random() (returns random num between 0 and 1)</li>
+        </ul>
+        <p>Remember that these will sometimes be not quite accurate because of background rounding errors.</p>
+        <p>Use decimal.js library if you need very very precise answers.</p>
+
+        <h4>The Date Object</h4>
+        <p>Date constructor: const christmas = new Date('2017 12 25')</p>
+        <p>Date.toString() makes it a string</p>
+        <p>Parameters: new Date(year, month, day, hour, minutes, seconds, milliseconds)</p>
+        <p>The parameters start with year and then go smaller </p>
+        <p>The epoch: January 1 1970</p>
+        <p>You can use milliseconds since the epoch if it is more convenient to have a number than a string or a weird
+            date object.</p>
+
+        <h5>Getter Methods</h5>
+        <p>Since you can't directly change the date objects, you gotta use the getter methods.</p>
+        <p>Getter methods usually have two versions: local time, and Coordinated Universal Time (UTC).</p>
+        Getter Methods: <a
+            href="https://www.codevscolor.com/javascript-date-getter-methods-normal-utc-date">https://www.codevscolor.com/javascript-date-getter-methods-normal-utc-date</a>
+
+        <h5>Setter Methods</h5>
+        <p>You can also use setter methods to put things into the date object.</p>
+
+        <p>moment.js library is used to make dates easier to work with. </p><a
+            href="https://momentjs.com/">https://momentjs.com/</a>
+
+        <h4>The RegExp Object</h4>
+        <p>Reference: <a
+                href="https://www.w3schools.com/jsref/jsref_obj_regexp.asp">https://www.w3schools.com/jsref/jsref_obj_regexp.asp</a>
+        </p>
+        <a href="https://extendsclass.com/regex-tester.html">Online Regex Tester</a>
+        <p>Like other objects, you can use a literal or constructor function.</p>
+        <p>Put regex between two slashes: const pattern = /[a-zA-Z]+ing$/;</p>
+
+        <h5>RegExp Methods</h5>
+        <p>Use the test() method to see if a string matches the pattern.</p>
+        <p>ex: pattern.test('string')</p>
+        <p>exec() works in a similar way, but returns array containing first match found.</p>
+        <p>At the most basic level is just trying to match a string to a string.</p>
+
+        <h5>Character Groups</h5>
+        <p>square brackets []: represents any one of the chars inside the brackets.</p>
+        <p>A sequence is represented by a dash -</p>
+        <p>^ negates whatever is after it. </p>
+
+        <h5>Regex Properties</h5>
+        <ul>
+            <li>global: returns all matches</li>
+            <li>ignoreCase: makes it case insensitive</li>
+            <li>multiline: makes pattern multiline</li>
+        </ul>
+        <h5>Flags</h5>
+        <ul>
+            <li>g: sets globabl to true</li>
+            <li>i: sets ignoreCase to true</li>
+            <li>m: sets multiline to true</li>
+        </ul>
+        <p>ex: pattern = /java/i</p>
+        <p>searches for string 'java', ignoring case.</p>
+        <p>You can't change whether the properties are set after regex has been created.</p>
+        <p>There are a lot of special characters and modifiers for regex, don't have time to memorize them all right
+            now.</p>
+
+        <h4>String methods</h4>
+        <p>String methods accept regex as parameter.</p>
+        <ul>
+            <li>split()</li>
+            <li>match(): returns array of all matches</li>
+            <li>search(): returns position of first match</li>
+            <li>replace(): replaces any matches with another string</li>
+
+        </ul>
+
+
+
+
+    </section>
+    <section>
+        <h2>JS Ninja chapter 6: Document Object Model</h2>
+        <p>Everything is a node.</p>
+        <p>nodes are branches on a tree that all attach to each other.</p>
+        <p>DOM is language agnostic.</p>
+        <p>There are different types of nodes</p>
+        <p>Use nodeType property to find out what type of node it is.</p>
+        <h4>Types of Nodes:</h4>
+        <ul>
+            <li>1: element</li>
+            <li>2: attribute</li>
+            <li>3: text</li>
+            <li>4: comment</li>
+            <li>5: body</li>
+        </ul>
+        <p>You can also use the nodeName property to find the name of the element.</p>
+        <h3>Legacy DOM Shortcut Methods</h3>
+        <p>Old, but we can still use these:</p>
+        <ul>
+            <li>Document.body: returns body</li>
+            <li>Document.images: returns list of images</li>
+            <li>Document.links: returns list of all elements with href attribute (anchor and area)</li>
+            li
+            <li>Document.anchors: returns list of all anchor elements with a name attribute</li>
+            <li>Document.forms: returns list of forms</li>
+        </ul>
+        <p>Remember: node lists are like arrays, but not arrays. Use [] notation to access items. But you can't use
+            array methods.</p>
+        <p>Use Array.from() to turn node list into an array, or use spread operator</p>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax">What is
+            spread operator?</a>
+
+        <h3>Getting elements</h3>
+        <p>You know how to do this. Keep in mind, will not return a live node list.</p>
+        <p>Complex query selectors might not work with older version of IE.</p>
+
+        <p>jQuery: I would like to learn more about this.</p>
+
+        <h3>Navigating the DOM Tree</h3>
+        <p>childNodes property is a list of all children nodes of node concerned.</p>
+        <p>Keep in mind, this also includes empty text nodes.</p>
+        <p>children property returns element nodes only, not text child nodes.</p>
+        <p>firstChild property (this is also sometimes an empty text node)</p>
+        <p>nextSibling node: will choose the next sibling of the same parent node</p>
+        <p>previousSibling</p>
+
+        <h3>Finding the Value of a Nodes</h3>
+        <p>nodeValue returns whatever is inside the node.</p>
+        <p>textContent returns text content of an element (as a string)</p>
+        <p>change class with className. Be careful though. Changing the classname will reset all classes on the element.
+            Maybe better to use classList.add.</p>
+
+        <p>Writing a function to create elements can be a good idea because it's pretty repetitive.</p>
+
+
+        <script>
+            function createElement(tag, text) {
+                const el = document.createElement(tag);
+                el.textContent = text;
+                return el
+            }
+
+            const aquaman = createElement('li', 'Aquaman')
+        </script>
+
+        <h3>Putting Stuff on the Page</h3>
+        <p>appendChild</p>
+        <p>insertBefore()</p>
+
+        <h3>Remove Stuff from the Page</h3>
+        <p>removeChild(): use on parent node, place childnode to be removed as a parameter</p>
+        <p>replaceChild(): replace one node with another. Call on the parent node, as parameters use hte new node and
+            the node that is to be replaced.</p>
+
+        <h4>innerHTML</h4>
+        <p>innerHTML can be used to create html faster.</p>
+        <p>Don't use that to insert scripts though. It won't be executed.</p>
+
+        <h3>Live Collections</h3>
+        <p>getElementsByClassName() and getElementsByTagName() will return live collections that will update to reflect
+            changes on the page. Can be useful, but discouraged for performance reasons.</p>
+        <p>Be careful referring to elements by their index in a collection. It could change. </p>
+
+        <h3>Updating CSS</h3>
+        <p>Every element node has a style property.</p>
+        <p>Write CSS properties in camel case, not with dashes.</p>
+        <p>Use getComputedStyle() to tell what styles are being applied to an element.</p>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleDeclaration">Read more about CSS style
+            declaration objects.</a>
+        <p>However, it is usually better to change the class, and use CSS to change the styles. Gives a lot more
+            flexibility.</p>
+
+
+
+    </section>
+    <section>
+        <h2>JS Ninja chapter 7: Events</h2>
+        <h3>Event Listeners</h3>
+        <p>Notify you when something happens.</p>
+        <p>Event listeners are a non blocking approach to check events.</p>
+        <p>The program will process the rest of the code while it is waiting for the event to happen.</p>
+
+        <h4>Inline Event Handlers</h4>
+        <p>Older way of handling events where you write the function in the html.</p>
+        <p>problems with inline event handlers:</p>
+        <ul>
+            <li>JS is mixed with HTML. </li>
+            <li>You can only have one event handler per element</li>
+            <li>The code is hidden away in markup, making it hard to find. </li>
+            <li>The code needs to go in a string, so you need to be careful with ' and "</li>
+        </ul>
+
+        <h4>Older Event Handlers</h4>
+        <p>Use onclick property in the javascript to attach an event handler.</p>
+
+        <h4>Event Listeners</h4>
+        <p>Best way. </p>
+        <p>Don't put the parentheses in the reference to the callback function.</p>
+
+        <h3>The Event Object</h3>
+        <p>Event object gives information about the event.</p>
+        <p>event.target is the thing that the event happened to.</p>
+        <p>Coordinates of an event: tells you exactly where the event happened, on the screen or on the document.</p>
+
+        <h3>Types of Events</h3>
+        <ul>
+            <li>
+                <ul>
+                    Mouse events
+                    <li>click</li>
+                    <li>mousedown (both parts of click)</li>
+                    <li>mouseup</li>
+                    <li>dblclick (note: don't use dblclick and regular click on the same element)</li>
+                    <li>mouseout (mouse moves away from element)</li>
+                    <li>mouseover</li>
+                    <li>mousemove (when the mouse moves)</li>
+                </ul>
+            </li>
+            <li>
+                <ul>
+                    Keyboard Events:
+                    <li>keydown</li>
+                    <li>keypress (character is being typed on the screen)</li>
+                    <li>keyup</li>
+                </ul>
+            </li>
+            <li>
+                <ul>
+                    Touch Events:
+                    <li>touchstart</li>
+                    <li>touchend</li>
+                    <li>touchmove</li>
+                    <li>touchenter (while dragging finger, enters the area with the listener)</li>
+                    <li>touchleave</li>
+                    <li>touchcancel (interrupted touch event)</li>
+                </ul>
+            </li>
+        </ul>
+        
+        <h4>Modifier keys</h4>
+        <p>shift, ctrl, alt, etc are modifer keys. They fire the keydown and keyup events, but not keypress events.</p>
+        <p>Which key has been pressed is stored in event.key</p>
+
+        <h4>Touch Events</h4>
+        <p>Be careful with touchstart. The user might just be trying to scroll. Use click instead. Click is the same as 'tap' on a phone.</p>
+        <p>SWIPING?? No such thing. You must use touchstart, touchmove, and touchleave to monitor distance and direction of a swipe. </p>
+        <p>Libaries for implementing gestures: Hammer.js, zingtouch</p>
+
+        <h4>Touch Event Properties</h4>
+        <p>length: tells you how many touch points are in contact with the surface.</p>
+        <p>Each touch has a touch.identifier property to make sure you are using the same one.</p>
+        <p>Many other properties also exist.</p>
+        <p>Touch events are still experimental and difficult to use.</p>
+
+        <h3>Removing Event Listeners</h3>
+        <p>works just the opposite of addEventListener.</p>
+        <p>Don't use an anonymous function if you might want to remove the event later.</p>
+
+        <h3>Stoping Default Behavior:</h3>
+        <p>preventDefault() is an event method you can use.</p>
+        <p>Every event has a property called cancellable that you can use to check if the default can be prevented.</p>
+
+        <h3>Event Propagation:</h3>
+        <p>When you click an element, you are also clicking its parent elements.</p>
+        <p>Event propagation: choose which order the events fire on each element.</p>
+        <p>Two ways: bubbling and capturing.</p>
+        <p><strong>Bubbling:</strong> event fires on clicked element first, then bubbles up the dom tree until it reaches the root.</p>
+        <p><strong>Capturing:</strong> Starts first with root element, then propagates downwards.</p>
+        <p>Bubbling is the default behavior.</p>
+        <p>If you want it to capture instead, use the third parameter of addEventListener: a boolean specifying whether to use capturing or not.</p>
+        <p>If you want to stop the bubble phase, add event.stopPropagation() method into the callback function.</p>
+
+        <h3>Event Delegation</h3>
+        <p>Attach an event listener to a parent element in order to capture events that are triggered by its child elements.</p>
+        <p>This is great if you need to add event listeners to a lot of siblings.</p>
+        <p>Use event.target to specify the thing that was clicked.</p>
+
+
+
+    </section>
+    <h2>This</h2>
+    <p>this must be used in a context of an object.</p>
+    <p>what exactly 'this' is is evaluated at the time of a function call.</p>
+    <p>This means you can reuse a function inside different objects.</p>
+    <p>Arrow functions have no 'this'</p>
+    <p>If you use 'this' inside an arrow function, it uses the outer environment's 'this' if it exists.</p>
+</body>
+
+</html>
