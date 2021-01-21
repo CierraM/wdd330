@@ -199,6 +199,7 @@
 
 
     </section>
+    <hr>
     <section>
         <h2>JS Ninja chapter 6: Document Object Model</h2>
         <p>Everything is a node.</p>
@@ -294,6 +295,7 @@
 
 
     </section>
+    <hr>
     <section>
         <h2>JS Ninja chapter 7: Events</h2>
         <h3>Event Listeners</h3>
@@ -357,14 +359,16 @@
                 </ul>
             </li>
         </ul>
-        
+
         <h4>Modifier keys</h4>
         <p>shift, ctrl, alt, etc are modifer keys. They fire the keydown and keyup events, but not keypress events.</p>
         <p>Which key has been pressed is stored in event.key</p>
 
         <h4>Touch Events</h4>
-        <p>Be careful with touchstart. The user might just be trying to scroll. Use click instead. Click is the same as 'tap' on a phone.</p>
-        <p>SWIPING?? No such thing. You must use touchstart, touchmove, and touchleave to monitor distance and direction of a swipe. </p>
+        <p>Be careful with touchstart. The user might just be trying to scroll. Use click instead. Click is the same as
+            'tap' on a phone.</p>
+        <p>SWIPING?? No such thing. You must use touchstart, touchmove, and touchleave to monitor distance and direction
+            of a swipe. </p>
         <p>Libaries for implementing gestures: Hammer.js, zingtouch</p>
 
         <h4>Touch Event Properties</h4>
@@ -385,26 +389,34 @@
         <p>When you click an element, you are also clicking its parent elements.</p>
         <p>Event propagation: choose which order the events fire on each element.</p>
         <p>Two ways: bubbling and capturing.</p>
-        <p><strong>Bubbling:</strong> event fires on clicked element first, then bubbles up the dom tree until it reaches the root.</p>
+        <p><strong>Bubbling:</strong> event fires on clicked element first, then bubbles up the dom tree until it
+            reaches the root.</p>
         <p><strong>Capturing:</strong> Starts first with root element, then propagates downwards.</p>
         <p>Bubbling is the default behavior.</p>
-        <p>If you want it to capture instead, use the third parameter of addEventListener: a boolean specifying whether to use capturing or not.</p>
+        <p>If you want it to capture instead, use the third parameter of addEventListener: a boolean specifying whether
+            to use capturing or not.</p>
         <p>If you want to stop the bubble phase, add event.stopPropagation() method into the callback function.</p>
 
         <h3>Event Delegation</h3>
-        <p>Attach an event listener to a parent element in order to capture events that are triggered by its child elements.</p>
+        <p>Attach an event listener to a parent element in order to capture events that are triggered by its child
+            elements.</p>
         <p>This is great if you need to add event listeners to a lot of siblings.</p>
         <p>Use event.target to specify the thing that was clicked.</p>
 
 
 
     </section>
-    <h2>This</h2>
-    <p>this must be used in a context of an object.</p>
-    <p>what exactly 'this' is is evaluated at the time of a function call.</p>
-    <p>This means you can reuse a function inside different objects.</p>
-    <p>Arrow functions have no 'this'</p>
-    <p>If you use 'this' inside an arrow function, it uses the outer environment's 'this' if it exists.</p>
+    <hr>
+    <section>
+        <h2>This</h2>
+        <p>this must be used in a context of an object.</p>
+        <p>what exactly 'this' is is evaluated at the time of a function call.</p>
+        <p>This means you can reuse a function inside different objects.</p>
+        <p>Arrow functions have no 'this'</p>
+        <p>If you use 'this' inside an arrow function, it uses the outer environment's 'this' if it exists.</p>
+    </section>
+    <hr>
+
 </body>
 
 </html>
