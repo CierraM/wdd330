@@ -153,3 +153,20 @@
         'truck'
       ];
 
+      const transport = {};
+
+      data.forEach( item => {
+        if (!transport[item]) {
+          transport[item] = data.reduce((acc, eachThing) => {
+            if (eachThing == item){
+              return acc + 1;
+            }
+            else {
+              return acc;
+            }
+            
+          }, 0)
+        }
+      })
+
+      console.log(transport)
