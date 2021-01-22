@@ -1,0 +1,46 @@
+body{
+    padding: 0;
+    font-size: 1.5em;
+    margin: 0;
+    
+}
+
+main{
+    width: 90%;
+    margin: 0 auto;
+}
+
+h1{
+    font-size: 2em;
+}
+
+h2{
+    font-size: 1.8em;
+}
+
+nav{
+    background-color: #2B3950;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 15px;
+}
+
+nav ul li{
+    margin: 5px;
+    list-style: none;
+    padding: 10px;
+    flex: 1 1 40px;
+    background-color: rgba(255, 255, 255, .1);
+    border: 3px solid white;
+    border-radius: 5px;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: white;
+}

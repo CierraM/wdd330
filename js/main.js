@@ -1,26 +1,3 @@
-const links = [
-    {
-    label: "Week 01 Notes",
-    url: "./week01/index.html"
-    },
-    {
-        label: "Week 02 Notes",
-        url: "./week02/index.html"
-    },
-    {
-        label: "Week 02 Team Activity",
-        url: "./week02/week02-team-activity/index.html"
-    },
-    {
-        label: "Week 03 Notes",
-        url: "./week03/index.html"
-    },
-    {
-        label: "Week 03 Team Activity",
-        url: "./week03/team-activity.html"
-    }
-    
-];
 
 const container = document.getElementById('links');
 
