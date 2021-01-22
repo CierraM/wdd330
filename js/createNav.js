@@ -11,7 +11,7 @@ li.appendChild(a);
 ul.appendChild(li);
 
 links.map( link =>{
-    let href= link.url;
+    let href= "." + link.url;
     let li = document.createElement('li');
     let a = document.createElement('a');
     a.textContent = link.label;
