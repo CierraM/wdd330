@@ -23,6 +23,10 @@ const links = [
         label: "Week 04 Notes",
         url: "./week04/index.html"
     },
+    {
+        label: "Tic Tac Toe",
+        url: "./week04/tictactoe.html"
+    },
     
     
 ];

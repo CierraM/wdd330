@@ -1,0 +1,84 @@
+body{
+    height: 1vh;
+    box-sizing: border-box;
+    background-image: url('nathan-anderson-fcZIyU-nbFE-unsplash.jpg');
+    overflow: hidden;
+    background-size: cover;
+}
+
+.board-wrapper{
+    height: 100%;
+}
+
+.board{
+    height: 300px;
+    width: 80%;
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    margin: 0 auto;
+}
+
+h1{
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 1.8em;
+    color: peachpuff;
+    width: 100%;
+}
+
+.space{
+    width: 100px;
+    height: 100px;
+    border: 2px solid white;
+    margin: 0;
+    font-size: 5em;
+    text-align: center;
+    color: peachpuff;
+}
+
+.space:nth-child(1){
+    border-top: none;
+    border-left: none;
+}
+
+.space:nth-child(2){
+    border-top: none;
+}
+
+.space:nth-child(3){
+    border-top: none;
+    border-right: none;
+}
+
+.space:nth-child(4){
+    border-left: none;
+}
+
+.space:nth-child(6){
+    border-right: none;
+}
+
+.space:nth-child(7){
+    border-left: none;
+    border-bottom: none;
+}
+
+.space:nth-child(8){
+    border-bottom: none;
+}
+
+.space:nth-child(9){
+    border-right:none;
+    border-bottom: none;
+}
+
+button{
+    display: block;
+    margin: 350px auto;
+    height: 50px;
+    width: 100px;
+    text-align: center;
+    background-color: peachpuff;
+    border: none;
+    color: navy;
+}
