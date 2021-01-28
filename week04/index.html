@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 04 Notes</title>
+    <link rel="stylesheet" href="../styles/notes.css">
+</head>
+
+<body>
+    <nav></nav>
+    <main>
+        <h1>Week 04 Notes</h1>
+        <section>
+            <h2>JS Ninja Chapter 8: Forms</h2>
+            <!-- Write notes here -->
+            <h5>A search bar</h5>
+            <form name="search" action="/search">
+                <input type="text" name="searchInput" placeholder="Search Here">
+                <button type="submit">Search</button>
+            </form>
+            <h3>Form elements:</h3>
+            <p class="question">Why put things in a form rather than just grouping the elements together?</p>
+            <p class="question">How does this form know to press that button when the enter key is pressed?</p>
+            <p>Action attribute: the url that the form will be submitted to</p>
+            <p>Name attribute: used to access the information inside of it</p>
+
+            <h3>Form Properties and Methods</h3>
+            <p>form.submit() will submit the form automatically (but doesn't trigger submit event)</p>
+            <p>form.reset() will reset the form</p>
+            <p>form.action property can set the action attribute of a form</p>
+
+            <h3>Form events</h3>
+            <p>Focus: (when cursor is placed or when it is tabbed to)</p>
+            <p>Blur: when focus is moved away</p>
+            <p>Change: when something is actually changed</p>
+            <p>Submits the form to url, unless you intercept it with js to do something else.</p>
+
+            <h3>Retrieving and Changing Values From a Form</h3>
+            <p>value property retrieves text in a field</p>
+
+            <h3>Form Controls</h3>
+            <p>input</p><input type="text">
+            <p>select: drop down</p><select name="Select" id=""></select>
+            <p>textarea</p><textarea name="" id="" cols="30" rows="10"></textarea>
+            <p>button</p><button>Click me!</button>
+            <br><br>
+
+            <form id="hero">
+                <label for='heroName'>Name:
+                    <input type='text' id='heroName' name='heroName' autofocus placeholder='Your Super Hero Name'
+                        maxlength=32>
+                </label>
+                <label for='realName'>Real Name:
+                    <input type='password' name='realName' id='realName'></label>
+                <p>Super Powers:</p>
+                <label for='flight'>Flight:
+                    <input type='checkbox' id='flight' value='Flight' name='powers'>
+                </label>
+                <label for='strength'>Super Strength:
+                    <input type='checkbox' id='strength' value='Strength' name='powers'>
+                </label>
+                <label for='speed'>Super Speed:
+                    <input type='checkbox' id='speed' value='Super Speed' name='powers'>
+                </label>
+                <label for='energy'>Energy Blasts:
+                    <input type='checkbox' id='energy' value='Energy Blasts' name='powers'>
+                </label>
+                <label for='telekinesis'>Telekinesis:
+                    <input type='checkbox' id='telekinesis' value='Telekinesis' name='powers'>
+                </label>
+                <p>What type of hero are you?</p>
+                <label for='hero'>Hero:
+                    <input type='radio' name='category' value='Hero' id='hero'>
+                </label>
+                <label for='villain'>Villain:
+                    <input type='radio' name='category' value='Villain' id='villain'>
+                </label>
+                <label for='anti-hero'>Anti-Hero:
+                    <input type='radio' name='category' value='Antihero' id='anti-hero'>
+                </label>
+                <button type='submit'>Submit</button>
+            </form>
+
+            <h3>Inputs</h3>
+            <p>text</p>
+            <p>password</p>
+            <p>checkbox</p>
+            <p>Radio Buttons</p>
+            <p>Hidden inputs: for stuff the user doesn't need to fill out again.</p>
+            <p>File input: lets user add a file</p>
+            <p>number</p>
+            <p>select: drop downs</p>
+
+            <h3>Form validation</h3>
+            <p>Front end validation is for making a better user experience. Server side validation is for actually
+                making sure everything is correct.</p>
+            <p>You can add validation in the html, but this is not the best way since it is not consistent across
+                browsers.</p>
+            <p>Add event listeners to check the form as the user types, not just when it is submitted</p>
+            <p>Disable the submit button if there are errors in the form.</p>
+
+
+        </section>
+
+
+        <hr>
+        <section>
+            <h2>JS Ninja Chapter 12: Object Oriented Programming</h2>
+            <!-- Write notes here -->
+            <h3>Encapsulation</h3>
+            <p>Inner workings are kept hidden in the object, and only essential functions are exposed to user.</p>
+
+            <h3>Polymorphism</h3>
+            <p>The same processes can be used for different objects. Various objects have the same method, but also have
+                the ability to override shared methods with a more specific implementation.</p>
+
+            <h3>Inheritance</h3>
+            <p>Taking features of one object and adding new features.</p>
+
+            <h3>Classes</h3>
+            <p>Classes define blueprint.</p>
+
+            <h3>Constructor Functions</h3>
+            <p>A function to create objects.</p>
+            <p>Javascript has some built in constructor functions for Object, Array, and Function. But you can also
+                write your own constructor functions</p>
+
+            <h3>ES6 Class Declarations</h3>
+            <p>Now you can uses classes with Javascript</p>
+
+            <h3>The Constructor Property</h3>
+            <p>All objects have a constructor property that returns the constructor function that created it</p>
+            <p>Use constructor property to instantiate a copy of an object without having to refernce it directly.</p>
+
+            <h3>Static Methods</h3>
+            <p>Static methods are for by the class directly, rather than the instance of the class.</p>
+
+            <h3>Protypal Inheritance</h3>
+            <p>Prototype properties are shared by every instance of the class</p>
+
+            <h3>The Prototype Property</h3>
+            <p>Prototype property returns an object</p>
+            <p>Lets you add properties and methods to a class</p>
+            <p>ex: turtle.prototype</p>
+            <p>Prototype always refers to the instance that calls a method</p>
+            <p>getPrototypeOf()</p>
+            <p class="question">What is a prototype?</p>
+            <p>Prototype should be used to add new properties and methods after the class has been declared. Use it to
+                add things that will be the same for every instance of the class.</p>
+            <p>Never use arrays or objects as default value in a prototype.</p>
+
+            <h3>Public and Private Methods</h3>
+            <p>Methods and properties are public be default. They can ve queried directly and changed by assignment.</p>
+            <p>By creatign a variable inside the constructor function, it can't be accessed outside of that scope.</p>
+            <p>Use getter and setter methods to form closure over a variable and provide controlled access</p>
+            <p>Add these functions as methods to the class.</p>
+            <p>In these getter/setter functions, you can add filtering, for example, to make sure color is only set to a
+                string</p>
+
+            <h3>Inheritance</h3>
+            <p>Every prototype has its own prototype, which inherits the properties of the previous one, creating a
+                chain of inheritance.</p>
+            <img src="./jsninja2.jpg" alt="diagram">
+
+            <h3>The Object Constructor</h3>
+            <p>All objects ultimately inherit from the the prototype of the object constructor function</p>
+            <p>All objects have built in methods that are inherited from the object prototype</p>
+
+            <h3>Enumerable Properties</h3>
+            <p>If a property is not enumerable, it won't show up when you try to loop through an object's properties.
+            </p>
+            <p>Built in methods are usually not enumerable, user defined methods are usually enumerable.</p>
+
+            <h3>Inheritance Using extends</h3>
+            <p>Use extends to avoid polluting the more generic version of a class with a more specific version.</p>
+
+            <h3>Polymorphism</h3>
+            <p>A secret: Primitive values are actually objects in the background. That's how they have methods.</p>
+            <p>You can even override built in methods for the classes you create. For example, toString() is not that
+                useful when applied to objects. You can write your own toString() method to do what you want it to do.
+            </p>
+
+            <h3>Adding Methods to Built In Objects</h3>
+            <p>Cool, but frowned upon.</p>
+            <p>Monkey patching is when you modify built in object methods.</p>
+            <p>Instead, you can use extneds to create your own class based off one of the built in classes.</p>
+
+            <h3>Property Attributes and Descriptors</h3>
+            <p>An object that contains the values of properties</p>
+            <ul>
+                <li>value: the value of the property</li>
+                <li>writable: whether it can be changed or not</li>
+                <li>enumerable: whether it will show up in a loop</li>
+                <li>configurable: whether you can delete the property or change its attributes</li>
+            </ul>
+            <p>You can change the property attributes for your own stuff</p>
+
+            <h4>Getting and Setting Property Descriptors</h4>
+            <p>Use Object.getOwnPropertyDescriptor() to see the property descriptors</p>
+            <p>Use Object.defineProperty to set them</p>
+
+            <h4>Getters and Setters</h4>
+            <p>Uses to have fine grained control over how properties are assigned</p>
+            <p>For example, prohibit the number of sides on a dice from being set to a negative number</p>
+
+            <h3>Creating Objects from Other Objects</h3>
+            <p>create() method can be used to make a copy of an object</p>
+            <p>Then you can modify it to make it more specific</p>
+
+            <h3>Object Prototype Chain</h3>
+            <p>Creating objects from objects makes a prototype chain</p>
+            <img src="./jsninja3.jpg" alt="diagram">
+
+            <h3>Mixins</h3>
+            <p>Used to add properties from one object to another without using inheritance</p>
+            <p>This creates a shallow copy (copied by reference, both point to the same spot in memory)</p>
+            <p>Mixin(objectName, properties)</p>
+
+            <h3>Factory Functions</h3>
+            <p>Used to return an object</p>
+
+
+            <h3>Chaining Functions</h3>
+            <p>If a method returns 'this', it's methods can be chained together to form a sequence of methods that are
+                called ina row. method1().method2().method3()</p>
+
+            <h3>Binding this</h3>
+            <p>Use that = this to prevent this from getting stuck to the global object</p>
+            <p>Or use bind(this)</p>
+            <p>bind sets the value of this in a function. It will be bound to the object calling the original method.
+            </p>
+            <p>In arrow functions, this is bound to the original object making the function call</p>
+
+            <h3>Borrowing Methods from Prototypes</h3>
+            <p>Example: slice = Array.prototype.slice to make slice available to array like things that are not arrays.
+            </p>
+            <p>Then use slice.call()</p>
+            <p>But in es6 you can use array.from() to turn an array-like object into an array</p>
+
+            <h3>Composition Over Inheritance</h3>
+            <p>Create small objects that describe single tasks and use them to build more complex ones.</p>
+            <p>Air on the side of classes having less stuff in them.</p>
+            <p>Keep inheritance chains short</p>
+            <p>Borrow a method using something like Gorilla.prototyp.banana, rather than inheriting the method.</p>
+            <p>Or even move banana to a separate object and make it a mixin wherever it is needed.</p>
+
+
+        </section>
+
+
+        <hr>
+        <section>
+            <h2>JS Ninja Chapter 15: Modern Javascript</h2>
+            <!-- Write notes here -->
+            <h3>Libraries</h3>
+            <p>A piece of code that provides methods that make it easier to achieve tasks.</p>
+            <p>For example, jQuery makes shorter DOM manipulation</p>
+
+            <h4>jQuery</h4>
+            <p>Widely used and good support for older browsers.</p>
+            <p>Uses $ as alias for jquery object</p>
+
+            <h4>Underscore and Lodash</h4>
+            <p>Provide utility functions under namespace _</p>
+
+            <h4>Advantages and disadvantages of libraries</h4>
+            <p>advantage: lots of testing</p>
+            <p>disadvantages: extra code.</p>
+
+            <h3>Modular JavaScript</h3>
+            <p>Keep modules that are small, with single purpose to avoid wasting code.</p>
+            <p>Coupling: how dependent elements of code are to each other. </p>
+            <p>Keep code loosely coupled.</p>
+
+            <h4>ES6 Modules</h4>
+            <p>Each module has its own scope.</p>
+            <p>You can just import one thing at a time.</p>
+            <p>Things that are exported are public.</p>
+            <p>Default exports can be imported without having to be named.</p>
+
+            <h4>Node.js Modules</h4>
+            <p>Uses different syntax</p>
+            <p>Use keyword require to import a module.</p>
+
+            <h3>MVC Frameworks</h3>
+            <p>Model-View-controller</p>
+            <p>3 components:</p>
+            <p>Models: objects that implement functionality for CRUD tasks.</p>
+            <p>Views: Visual representation (HTML on a webpage)</p>
+            <p>Controllers: link models and views together. Respond to events.</p>
+            <p>Templating languages are cool because they loosen coupling between html and js.</p>
+            <p>Insert javascript into html</p>
+            <p>Angular</p>
+            
+            <h4>Web Components</h4>
+            <p>React and Vue</p>
+            <p>For designing interactive web applications, as opposed to web pages where it is better to keep separation of languages</p>
+
+            <h3>Package Managers</h3>
+            <p>Package: a directory with code files and package.json</p>
+            <p>Dependency management: ensuring all dependency requirements are met.</p>
+            <p>npm is great</p>
+            <p>npm init: when you start a project, creates packagejson</p>
+            <p>packagese are kept in node_modules folder</p>
+            <p>npm install will install packages</p>
+            <p>devDependency: things that you use for development, but not required for the program to run.</p>
+            <p>To add dev dependency, use --save-dev flag</p>
+            <p>Don't normally install something globablly unless you use it all the time.</p>
+            <p>yarn is cool too.</p>
+
+            <h4>Content Delivery Network</h4>
+            <p>Use a build tool like webpack to take straing off browser.</p>
+            
+            <h3>Deploying JavaScript</h3>
+            <p>Rather than having to worry about attaching all the scripts in the right order, put them all in a single minified file.</p>
+            <p>Called bundle.min.js</p>
+
+            <h4>Transpiling Code</h4>
+            <p>Transpilers turn new javascript code into old code that old browsers understand.</p>
+            <p>Babel is cool.</p>
+
+            <h4>Minification</h4>
+            <p>removes comments and whitespace and other stuff you don't need.</p>
+            <ul>
+                <li>YUI Compressor</li>
+                <li>Google's Closure</li>
+                <li>Uglify.JS</li>
+            </ul>
+            <p>You can also do server side compression</p>
+
+            <h4>Folder Structure</h4>
+            <p>Make folders to keep things in</p>
+            <p>Put stuff that needs to be transpiled in the src folder</p>
+            <p>Put the output of transpiled code in the dist (distribution) folder</p>
+            <p>Put modules in the lib folder</p>
+            <p>Organize modules even further if you have a bunch of them</p>
+            <h5>An example of organization by type:</h5>
+            <ul>
+                <li>
+                    src 
+                    <ul>
+                        <li>CSS</li>
+                        <li>JS</li>
+                        <li>views</li>
+                        <li>tests</li>
+                    </ul>
+                </li>
+                <li>dist
+                    <ul>
+                        <li>index.html</li>
+                        <li>bundle.min.js</li>
+                        <li>package.json</li>
+                        <li>node_modules</li>
+                        <li>README</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h4>Modular Organization</h4>
+            <p>Grouping files be feature rather than by type.</p>
+            <p>Good for working with teams because it keeps different stuff from interfering with other stuff.</p>
+
+            <h4>Webpack</h4>
+            <p>Handy module bundler</p>
+            <ul>
+                <li>transpiles</li>
+                <li>minifies</li>
+                <li>lints</li>
+                <li>tests</li>
+                <li>compiles</li>
+            </ul>
+            <p>You can automate it to do whatever you need.</p>
+
+
+        </section>
+
+        <hr>
+        <section>
+            <h2>Class Notes</h2>
+            <p>If using import/export, make sure to add type="module" to the script tag</p>
+            <p>for attribute connects label to input, so you can click on either one to activate the input.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>I Numbers</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+            <form action="">
+                <label for="firstName">First Name: <input type="text" id='firstName' name='firstName'></label>
+            </form>
+        </section>
+    </main>
+
+    <script src="./script.js"></script>
+
+    <script src="../js/links.js"></script>
+    <script src="../js/createNav.js"></script>
+</body>
+
+</html>
