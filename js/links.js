@@ -29,7 +29,7 @@ const links = [
     },
     {
         label: "Week 05 Notes",
-        url: "./week05/notes.html"
+        url: "./week05/index.html"
     },
     {
         label: "Contacts App",
