@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+</head>
+
+<body>
+    <nav></nav>
+    <main>
+        <h1>Week 05 Notes</h1>
+        <h2>JS Ninja Chapter 10: Testing and Debugging</h2>
+        <h3>Errors, Exceptions, and Warnings</h3>
+        <h4>Three types of errors:</h4>
+        <ul>
+            <li>System error: problem with system or external devices</li>
+            <li>Programmer error: bad syntax or logic</li>
+            <li>User error: user entered wrong data, program can't handle it.</li>
+        </ul>
+        <p>User errors might also be programmer errors, because you should design the program in a way that will prevent
+            a user error.</p>
+        <h4>Exceptions</h4>
+        <p>an exception is an error that produces return value to help you deal with it.</p>
+        <h4>Stack Traces</h4>
+        <p>stack trace: the trail of functions or methods that lead to the point where the error occured.</p>
+        <h4>Warnings</h4>
+        <p>Small errors that don't crash the program.</p>
+
+        <h3>The Importance of Testing and Debugging</h3>
+        <p>Make sure your code fails loudly so you can identify and fix the problem.</p>
+        <p>In production, let it fail gracefully so as to minimally impact user experience.</p>
+
+        <h3>Strict Mode</h3>
+        <p>Strict mode helps you find errors and problems faster.</p>
+        <h4>Linting Tools</h4>
+        <p>Helps you not be a sloppy programmer.</p>
+        <p>Good for working with team, since it makes sure everyone writes code the same way.</p>
+
+        <h3>Feature Detection</h3>
+        <p>Wrap anything using a new feature in an if statement that will detect if that feature is available.</p>
+        <p>Modernizr is a library that has easy feature detection.</p>
+        <p>Browser sniffing: old way to check suppport. </p>
+
+        <h3>Debugging in the Browser</h3>
+        <p>Use breakpoints</p>
+        <h4>The Trusty Alert</h4>
+        <p>alerts can be handy because they keep the program from continuing until button is clicked.</p>
+        <h4>Using the Console</h4>
+        <p>console.trace() will log an interactive stack trace.</p>
+        <p>debugger keyword: creates a breakpoint in the code. </p>
+
+        <h3>Error Objects</h3>
+        <p>You can use constructor function to make your own errors</p>
+        <p>The parameter for error constructor is the error message.</p>
+        <p>Or you can use one of the 7 specific error objects:</p>
+        <ul>
+            <li>EvalError: used to find errors in the global eval() function</li>
+            <li>RangeError: when a number is outside allowable values</li>
+            <li>ReferenceError: reference is made to something that doesn't exist</li>
+            <li>SyntaxError: syntax problem. </li>
+            <li>TypeError: problem with type of value that is being used</li>
+            <li>URIError: problem encoding/decoding url</li>
+            <li>InternalError: problem in javascript engine (too much recursion)</li>
+        </ul>
+
+        <p>You can use constructor function to make any of these errors happen.</p>
+        <h4>Throwing Exceptions</h4>
+        <p>Use throw keyword to stop the program</p>
+        <p>You can throw anything, but it is best to throw an error object.</p>
+
+        <h3>Exception Handling</h3>
+        <p>handle exceptions gracefully by catching an error rather than letting the program crash (this is for
+            production)</p>
+        <h4>try, catch, and finally</h4>
+        <p>If you suspect it will result in exception, wrap it in a try block. It will then be passed to the catch
+            block.</p>
+        <script>
+            function imaginarySquareRoot(number) {
+                'use strict';
+                try {
+                    return String(squareRoot(number));
+                } catch (error) {
+                    return squareRoot(-number) + 'i';
+                }
+            }
+        </script>
+        <p>finally block can go after catch block. Catch is only executed if try fails, but finally is always executed
+            at the end.</p>
+
+        <h3>Tests</h3>
+        <h4>Test driven Development</h4>
+        <p>Write tests, then write code to pass the tests.</p>
+        <p>Practice writing tests by testing frameworks.</p>
+        <script>
+            test('square root of 4 is 2', () => {
+                        expect(squareRoot(4)).toBe(2);
+            });
+        </script>
+        <p>expect().toBe(); is the syntax</p>
+        <p>Use toEqual() for arrays.</p>
+    </main>
+    <script src="../js/links.js"></script>
+    <script src="../js/createNav.js"></script>
+</body>
+
+</html>

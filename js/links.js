@@ -27,6 +27,14 @@ const links = [
         label: "Tic Tac Toe",
         url: "./week04/tictactoe.html"
     },
+    {
+        label: "Week 05 Notes",
+        url: "./week05/notes.html"
+    },
+    {
+        label: "Contacts App",
+        url: "./contacts-app/index.html"
+    }
     
     
 ];
