@@ -34,6 +34,10 @@ const links = [
     {
         label: "Contacts App",
         url: "./contacts-app/index.html"
+    },
+    {
+        label: "Week 05 Team Activity",
+        url: "week05/team-activity.html"
     }
     
     
