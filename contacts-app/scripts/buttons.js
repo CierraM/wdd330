@@ -6,10 +6,12 @@ import {
     renderDefaultView
 } from './render.js'
 
-import {contacts} from './main.js';
+import {
+    contacts
+} from './main.js';
 
 import {
-    createNewContact, 
+    createNewContact,
     saveContact,
     saveToStorage
 } from './data.js';
@@ -30,7 +32,7 @@ function plus() {
     //calls createNewContact, clears screen, and renders it in edit view
     const newContact = createNewContact();
     clearScreen();
-    renderEditView(newContact);
+    renderEditView(newContact, false);
 }
 
 function back() {
@@ -53,30 +55,44 @@ function viewDetails(e) {
 
 }
 
-function edit(contact){
+function edit(contact) {
     //clear screen, render edit screen, and fill in data with current object
     clearScreen();
-    renderEditView(contact);
-    
+    renderEditView(contact, true);
+
 }
 
-function done(e, contact) {
+function done(e, edit = false) {
     //saves new contact info to memory, clears screen and renders default screen.
-    //Problem if this is being called for both edit and create new. this only works right for create new contact
-
+    //arg: edit: true if we are on the edit screen, false if we are on the add new contact screen
     const newContact = {
-            firstName: document.querySelector('#fname').value,
-            lastName: document.querySelector('#lname').value,
-            phone: document.querySelector('#tel').value,
-            email: document.querySelector('#email').value,
-            address: document.querySelector('#address').value,
-            notes: document.querySelector('#notes').value,
-            id: document.querySelector('.form').id,
-            imgSrc: document.querySelector('#output').src
-        }
+        firstName: document.querySelector('#fname').value,
+        lastName: document.querySelector('#lname').value,
+        phone: document.querySelector('#tel').value,
+        email: document.querySelector('#email').value,
+        address: document.querySelector('#address').value,
+        notes: document.querySelector('#notes').value,
+        id: document.querySelector('.form').id,
+        imgSrc: document.querySelector('#output').src
+    }
+    if (edit) {
+        let editedIndex
+        contacts.map((item, index) => {
+            if (item.id == newContact.id) {
+                editedIndex = index
+            }
+        })
 
-        
-    saveContact(newContact);
+        for (const [key, value] of Object.entries(contacts[editedIndex])) {
+            contacts[editedIndex][key] = newContact[key];
+        } 
+        saveToStorage(contacts)
+
+
+    } else {
+        saveContact(newContact);
+    }
+
     clearScreen();
     renderDefaultView(contacts);
 
@@ -87,4 +103,12 @@ function cancel() {
     renderDefaultView(contacts);
 }
 
-export {deleteContact, plus, cancel, back, edit, done, viewDetails}
+export {
+    deleteContact,
+    plus,
+    cancel,
+    back,
+    edit,
+    done,
+    viewDetails
+}

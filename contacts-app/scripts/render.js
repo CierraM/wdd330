@@ -126,7 +126,7 @@ function renderContactView(contact) {
     });
 }
 
-function renderEditView(contact) {
+function renderEditView(contact, edit = false) {
     //Renders edit view and fills in form with information
     const top = document.createElement('div');
 
@@ -145,7 +145,12 @@ function renderEditView(contact) {
     doneBtn.innerHTML = "Done";
 
     const h2 = document.createElement('h2');
+    if (edit){
+        h2.textContent = `${contact.firstName} ${contact.lastName}`
+    }
+    else{
     h2.textContent = 'New Contact';
+    }
 
     top.appendChild(cancelBtn);
     top.appendChild(h2);
@@ -155,20 +160,38 @@ function renderEditView(contact) {
     document.body.appendChild(top);
 
     const form = document.createElement('form');
-    form.innerHTML = `
-    <div class="form" id=${createId()}>
-    <label for="fname" class="editLabel">First Name:<input type="text" id="fname" class="input" value="${contact.firstName}"></label>
-    <label for="lname">Last Name:<input type="text" id="lname" class="input" value="${contact.lastName}"></label>
 
-    <label for="tel" class="editLabel">Phone<input type="tel" id="tel" class="input" value="${contact.phone}"></label>
-    <label for="email" class="editLabel">Email<input type="email" id="email" class="input" value="${contact.email}"></label>
-    <label for="address" class="editLabel">Address<input type="text" id="address" class="input" value="${contact.address}"></label>
+    if (edit) {
+        form.innerHTML = `
+        <div class="form" id=${contact.id}>
+        <label for="fname" class="editLabel">First Name:<input type="text" id="fname" class="input" value="${contact.firstName}"></label>
+        <label for="lname">Last Name:<input type="text" id="lname" class="input" value="${contact.lastName}"></label>
+    
+        <label for="tel" class="editLabel">Phone<input type="tel" id="tel" class="input" value="${contact.phone}"></label>
+        <label for="email" class="editLabel">Email<input type="email" id="email" class="input" value="${contact.email}"></label>
+        <label for="address" class="editLabel">Address<input type="text" id="address" class="input" value="${contact.address}"></label>
+    
+        <label for="notes" class="editLabel">Notes<textarea id="notes" class="input">${contact.notes}</textarea></label>
+    
+        <button type="button" id="deleteBtn" class="delete">Delete Contact</button>
+        </div>
+        `
+    } else {
+        form.innerHTML = `
+        <div class="form" id=${createId()}>
+        <label for="fname" class="editLabel">First Name:<input type="text" id="fname" class="input" value="${contact.firstName}"></label>
+        <label for="lname">Last Name:<input type="text" id="lname" class="input" value="${contact.lastName}"></label>
+    
+        <label for="tel" class="editLabel">Phone<input type="tel" id="tel" class="input" value="${contact.phone}"></label>
+        <label for="email" class="editLabel">Email<input type="email" id="email" class="input" value="${contact.email}"></label>
+        <label for="address" class="editLabel">Address<input type="text" id="address" class="input" value="${contact.address}"></label>
+    
+        <label for="notes" class="editLabel">Notes<textarea id="notes" class="input">${contact.notes}</textarea></label>
 
-    <label for="notes" class="editLabel">Notes<textarea id="notes" class="input" value="${contact.notes}"></textarea></label>
+        </div>
+        `
+    }
 
-    <button type="button" id="deleteBtn" class="delete">Delete Contact</button>
-    </div>
-    `
     document.body.appendChild(form);
 
     let url = ''
@@ -182,11 +205,14 @@ function renderEditView(contact) {
 
     document.querySelector('#cancelBtn').addEventListener('click', cancel);
     document.querySelector('#doneBtn').addEventListener('click', contact => {
-        done(contact);
+        done(contact, edit);
     });
+    
+    if (edit){
     document.querySelector('#deleteBtn').addEventListener('click', () => {
         deleteContact(contact);
     });
+}
 
 }
 
