@@ -33,5 +33,5 @@ function test(){
     clearScreen()
     renderEditView(contacts[0], true);
 }
-
+test()
 export {contacts}

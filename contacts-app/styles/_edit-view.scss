@@ -26,8 +26,11 @@
     color: blue;
 }
 
+
 .form label, textarea{
     display: block;
+    box-shadow: none;
+    border-radius: 0;
 }
 
 .form label{
@@ -49,6 +52,7 @@
     border-right: none;
     padding: 10px 20px;
     padding-top: 28px;
+
 }
 
 .label{
