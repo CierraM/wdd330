@@ -18,12 +18,20 @@ import {
 } from './buttons.js';
 
 import {
-    renderDefaultView
+    renderDefaultView,
+    renderEditView,
+    renderContactView,
+    clearScreen
 } from './render.js';
 
 //Contacts is a global array of the contact information.
 let contacts = loadData(); 
 
 renderDefaultView(contacts);
+
+function test(){
+    clearScreen()
+    renderEditView(contacts[0], true);
+}
 
 export {contacts}

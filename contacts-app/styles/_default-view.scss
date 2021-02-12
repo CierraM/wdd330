@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+// Create a phone-shaped port through which to preview the app on a computer
+
+
+html{
+    min-height: 100vh;
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+
+body{
+    font-family: Helvetica, Arial, sans-serif;
+    margin: 0;
+    background-color: #f6f6f6;
+    min-height: 100vh;
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+h2 {
+    font-family: Helvetica, arial, sans-serif;
+}
+
+.header{
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #f6f6f6;
+    border-bottom: 1px solid #aaa;
+}
+
+.header button {
+    border: none;
+    background-color: transparent;
+    font-size: 3.5em;
+    font-family: 'Roboto', helvetica, arial, sans-serif;
+    color: blue;
+    font-weight: 100;
+    min-width: 40px;
+
+}
+
+button:active{
+    background-color: transparent;
+    color: rgba(0, 0, 255, .1);
+}
+
+button:focus{
+    outline: none;
+}
+
+ul{
+    margin: 0;
+    list-style: none;
+    font-size: 1.2em;
+    padding: 0;
+    background-color:white;
+}
+
+ul li{
+    margin: 0;
+    border-bottom: 1px solid #aaa;
+    padding: 20px;    
+}
+
+.active-li{
+    background-color:#ccc;
+}

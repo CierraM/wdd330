@@ -1,3 +1,4 @@
-img {
-    max-width: 200px;
-}
+@import 'default-view';
+@import 'contact-view';
+@import 'edit-view';
+@import 'large-screen';

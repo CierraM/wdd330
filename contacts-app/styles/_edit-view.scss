@@ -1,0 +1,78 @@
+.edit-header{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+}
+
+.edit-header h2{
+    text-align: center;
+}
+
+.edit-header button{
+    background-color: transparent;
+    border: none;
+    color: blue;
+    font-size: 1.2em;
+}
+
+.profile-pic-div{
+    grid-column: 2/3;
+}
+
+.profile-pic-div label{
+    display: block;
+    text-align: center;
+    font-size: 1.2em;
+    padding: 15px;
+    color: blue;
+}
+
+.form label, textarea{
+    display: block;
+}
+
+.form label{
+    position: relative;
+}
+
+.form label:nth-of-type(2), .form label:nth-of-type(3), .form label:nth-of-type(4), .form label:nth-of-type(5){
+    margin-bottom: 44px;
+}
+
+.form input, .delete, textarea{
+    font-size: 1.2em;
+    display: block;
+    width: 100%;
+    margin: 0;
+    border-top: 1px solid #aaa;;
+    border-bottom: 1px solid #aaa;
+    border-left: none;
+    border-right: none;
+    padding: 10px 20px;
+    padding-top: 28px;
+}
+
+.label{
+    padding-left: 20px;
+    position: absolute;
+    top: 5px;
+    color: grey;
+}
+
+textarea {
+    width: 100%;
+    min-height: 100px;
+    margin-bottom: 44px;
+}
+
+textarea:focus {
+    outline: none;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+form .delete{
+    text-align: left;
+    padding: 10px 20px;
+    background-color: white;
+    margin-bottom: 44px;
+    color: red;
+}

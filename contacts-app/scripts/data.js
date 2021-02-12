@@ -1,4 +1,5 @@
 import {contacts} from './main.js';
+import {renderDefaultView } from './render.js'
 
 function loadData() {
     // Checks local storage for any data. Returns list of contacts or empty array. Only called once.
@@ -44,8 +45,13 @@ function createNewContact() {
 
 function saveContact(contact){
     //adds a contact (object) to the global contacts array and passes it to saveToStorage
+    try{
     contacts.push(contact);
     saveToStorage(contacts);
+} catch(e){
+    alert('You do not have enough storage to save this contact')
+    renderDefaultView(contacts)
+}
 }
 
 function imageToString(file, image){

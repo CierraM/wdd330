@@ -18,6 +18,9 @@ import {
 function renderDefaultView(contacts) {
     //Takes the list of contacts and renders them to the screen
     const header = document.createElement('div')
+    header.classList.add('header')
+
+    const spacer = document.createElement('div')
 
     const h2 = document.createElement('h2');
     h2.textContent = 'Contacts';
@@ -27,6 +30,7 @@ function renderDefaultView(contacts) {
     btn.setAttribute('type', 'button');
     btn.setAttribute('id', 'plus');
 
+    header.appendChild(spacer);
     header.appendChild(h2);
     header.appendChild(btn);
     document.body.appendChild(header);
@@ -52,7 +56,17 @@ function renderDefaultView(contacts) {
     })
     document.body.appendChild(ul);
     document.querySelector('ul').addEventListener('click', viewDetails)
-    
+
+    document.querySelectorAll('ul').forEach(each => {
+        each.addEventListener('touchstart', (e) => {
+            e.target.classList.add('active-li')
+        })
+    })
+    document.querySelectorAll('ul').forEach(each => {
+        each.addEventListener('touchend', (e) => {
+            e.target.classList.remove('active-li')
+        })
+    })
 }
 
 function renderContactView(contact) {
@@ -61,11 +75,11 @@ function renderContactView(contact) {
     top.setAttribute('class', 'top');
 
     const backBtn = document.createElement('button');
-    backBtn.textContent = "< Contacts";
+    backBtn.innerHTML = "< Contacts";
     backBtn.setAttribute('id', 'back');
 
     const editBtn = document.createElement('button');
-    editBtn.textContent = 'edit';
+    editBtn.textContent = 'Edit';
     editBtn.setAttribute('id', 'edit');
 
     const nameCard = document.createElement('div');
@@ -119,7 +133,7 @@ function renderContactView(contact) {
     document.body.appendChild(main);
 
 
-    
+
     document.querySelector('#back').addEventListener('click', back);
     document.querySelector('#edit').addEventListener('click', () => {
         edit(contact)
@@ -129,13 +143,23 @@ function renderContactView(contact) {
 function renderEditView(contact, edit = false) {
     //Renders edit view and fills in form with information
     const top = document.createElement('div');
+    top.classList.add('edit-header');
 
     const picture = document.createElement('div');
-    picture.innerHTML = `
-    <img src="" alt="profile-img" id="output">
-    <input type="file" id="file" accept="image/gif, image/jpeg, image/png" name="image"  style="display: none">
-    <label for="file">Add Photo</label>
-    `
+    if (edit) {
+        picture.innerHTML = `
+        <img src="${contact.imgSrc}" alt="profile-img" id="output">
+        <input type="file" id="file" accept="image/gif, image/jpeg, image/png" name="image"  style="display: none">
+        <label for="file">Add Photo</label>
+        `
+    } else {
+        picture.innerHTML = `
+        <img src="" alt="profile-img" id="output">
+        <input type="file" id="file" accept="image/gif, image/jpeg, image/png" name="image"  style="display: none">
+        <label for="file">Add Photo</label>
+        `
+    }
+    picture.classList.add('profile-pic-div');
     const cancelBtn = document.createElement('button');
     cancelBtn.setAttribute('id', "cancelBtn")
     cancelBtn.innerHTML = "Cancel";
@@ -145,11 +169,10 @@ function renderEditView(contact, edit = false) {
     doneBtn.innerHTML = "Done";
 
     const h2 = document.createElement('h2');
-    if (edit){
-        h2.textContent = `${contact.firstName} ${contact.lastName}`
-    }
-    else{
-    h2.textContent = 'New Contact';
+    if (edit) {
+        h2.textContent = `Edit Contact`
+    } else {
+        h2.textContent = 'New Contact';
     }
 
     top.appendChild(cancelBtn);
@@ -164,14 +187,14 @@ function renderEditView(contact, edit = false) {
     if (edit) {
         form.innerHTML = `
         <div class="form" id=${contact.id}>
-        <label for="fname" class="editLabel">First Name:<input type="text" id="fname" class="input" value="${contact.firstName}"></label>
-        <label for="lname">Last Name:<input type="text" id="lname" class="input" value="${contact.lastName}"></label>
+        <label for="fname" class="editLabel"><div class="label">First Name:</div><input type="text" id="fname" class="input" value="${contact.firstName}"></label>
+        <label for="lname"><div class="label">Last Name:</div><input type="text" id="lname" class="input" value="${contact.lastName}"></label>
     
-        <label for="tel" class="editLabel">Phone<input type="tel" id="tel" class="input" value="${contact.phone}"></label>
-        <label for="email" class="editLabel">Email<input type="email" id="email" class="input" value="${contact.email}"></label>
-        <label for="address" class="editLabel">Address<input type="text" id="address" class="input" value="${contact.address}"></label>
+        <label for="tel" class="editLabel"><div class="label">Phone</div><input type="tel" id="tel" class="input" value="${contact.phone}"></label>
+        <label for="email" class="editLabel"><div class="label">Email</div><input type="email" id="email" class="input" value="${contact.email}"></label>
+        <label for="address" class="editLabel"><div class="label">Address</div><input type="text" id="address" class="input" value="${contact.address}"></label>
     
-        <label for="notes" class="editLabel">Notes<textarea id="notes" class="input">${contact.notes}</textarea></label>
+        <label for="notes" class="editLabel"><div class="label">Notes</div><textarea id="notes" class="input">${contact.notes}</textarea></label>
     
         <button type="button" id="deleteBtn" class="delete">Delete Contact</button>
         </div>
@@ -179,14 +202,14 @@ function renderEditView(contact, edit = false) {
     } else {
         form.innerHTML = `
         <div class="form" id=${createId()}>
-        <label for="fname" class="editLabel">First Name:<input type="text" id="fname" class="input" value="${contact.firstName}"></label>
-        <label for="lname">Last Name:<input type="text" id="lname" class="input" value="${contact.lastName}"></label>
+        <label for="fname" class="editLabel"><div class="label">First Name:</div><input type="text" id="fname" class="input" value="${contact.firstName}"></label>
+        <label for="lname"><div class="label">Last Name:</div><input type="text" id="lname" class="input" value="${contact.lastName}"></label>
     
-        <label for="tel" class="editLabel">Phone<input type="tel" id="tel" class="input" value="${contact.phone}"></label>
-        <label for="email" class="editLabel">Email<input type="email" id="email" class="input" value="${contact.email}"></label>
-        <label for="address" class="editLabel">Address<input type="text" id="address" class="input" value="${contact.address}"></label>
+        <label for="tel" class="editLabel"><div class="label">Phone</div><input type="tel" id="tel" class="input" value="${contact.phone}"></label>
+        <label for="email" class="editLabel"><div class="label">Email</div><input type="email" id="email" class="input" value="${contact.email}"></label>
+        <label for="address" class="editLabel"><div class="label">Address</div><input type="text" id="address" class="input" value="${contact.address}"></label>
     
-        <label for="notes" class="editLabel">Notes<textarea id="notes" class="input">${contact.notes}</textarea></label>
+        <label for="notes" class="editLabel"><div class="label">Notes</div><textarea id="notes" class="input">${contact.notes}</textarea></label>
 
         </div>
         `
@@ -195,24 +218,24 @@ function renderEditView(contact, edit = false) {
     document.body.appendChild(form);
 
     let url = ''
-    document.querySelector('#file').addEventListener('change',(e) => {
+    document.querySelector('#file').addEventListener('change', (e) => {
         let image = document.getElementById('output');
         let file = e.target.files[0];
         imageToString(file, image)
-        
-        
+
+
     })
 
     document.querySelector('#cancelBtn').addEventListener('click', cancel);
     document.querySelector('#doneBtn').addEventListener('click', contact => {
         done(contact, edit);
     });
-    
-    if (edit){
-    document.querySelector('#deleteBtn').addEventListener('click', () => {
-        deleteContact(contact);
-    });
-}
+
+    if (edit) {
+        document.querySelector('#deleteBtn').addEventListener('click', () => {
+            deleteContact(contact);
+        });
+    }
 
 }
 
