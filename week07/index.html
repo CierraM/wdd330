@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Week 07 Notes</title>
+</head>
+<body>
+    <nav></nav>
+    <main>
+        <h1>Week 07 Notes</h1>
+        <section>
+            <h2>Chapter 11: Further Functions</h2>
+            <h3>Further Functions</h3>
+            <p>Functions are first-class objects.</p>
+            <p>They have properties and methods.</p>
+
+            <h4>Call and Apply Methods</h4>
+            <p>call(): sets the value of 'this' inside a function to an object that is provided as the first argument</p>
+            <p>If you don't need to change 'this' you can pass null as the first argument.</p>
+            <p>Apply works the same way, but the arguments that go to that function are provided as an array, where in call(), they are just passed after the first argument.</p>
+            <p>These are useful because they let you write generalized functions not tied to specific objects.</p>
+
+            <h4>Custom Properties</h4>
+            <p>You can add properties to functions just like you can to objects.</p>
+            <p>Example: square.description = 'description'. Add description property to a function that describes what it does.</p>
+
+            <h4>Memoization</h4>
+            <p>If a function takes a bit to compute a value, save the result in a cache property.</p>
+            <span class="question">Same thing? </span><a href="https://developer.mozilla.org/en-US/docs/Web/API/Cache">https://developer.mozilla.org/en-US/docs/Web/API/Cache</a>
+
+            <h3>Immediately Invoked Function Expressions (IIFE)</h3>
+            <p>Anonymous function that's called as soon as defined.</p>
+            <p>put parentheses at the end, and put the whole function inside parentheses so it counts as an expression.</p>
+            <p>Useful for performing a task, while keeping variables wrapped up in function scope.</p>
+
+            <h4>Temporary Variables</h4>
+            <p>Place a variable that you want to be temporary inside an IIFE</p>
+
+            <h4>Initialization Code</h4>
+            <p>Use an IIFE to set up your code variables, objects, event listeners, etc.</p>
+            <p>But this isn't actually that useful in es6 because we can just use let and give things block scope.</p>
+
+            <h4>Safe Use of Strict Mode</h4>
+            <p>Use IIFE's to only apply strict mode to stuff you are coding.</p>
+
+
+            <h3>Functions that Define and Rewrite Themselves</h3>
+            <p>Assign an anonymous function to a variable with the same name as function</p>
+            <p>The catch: If the function is assigned to a variable, that variable will hold onto the first function.</p>
+            <p>This is useful if you want some different code the first time it is invoked to initialize things.</p>
+
+            <h4>Init Time Branching</h4>
+            <p>Used with feature detection to create functions that rewrite themselves to do what they can do depending on the browser.</p>
+
+
+            <h3>Recursive Functions</h3>
+            <p>Recursive functions invoke themselves until a certain condition is met.</p>
+
+
+            <h3>Callbacks</h3>
+            <p>You write code that runs out of order by waiting for events.</p>
+            <p>error-first callbacks: callbacks have two arguments: the first is an error objectin case something goes wrong, teh second is data returned by the operation</p>
+            <p>Promise: future resutl of asynchronous operation.</p>
+
+            <h4>Creating a promise</h4>
+            <p>Use a constructor function</p>
+
+            <h4>Deal with settled promise</h4>
+            <p>use then() to deal withthe outcome</p>
+            <p>Two args: fulfillment function, and the data returned from resolve() will also be passed in, and rejection function.</p>
+            <p>Or you can also chain a .catch() to a .then()</p>
+
+            <h4>Chaining Promises</h4>
+            <p>If your promise callback functions return a promise, use .then to chain them together</p>
+
+            <h4>Async functions</h4>
+            <p>Use await keyword</p>
+            <p>Return value is wrapped in a promise that can be assigned to variable</p>
+
+            <h4>Generalized Functions</h4>
+            <p>Use callback to build generalized function</p>
+
+            <h4>Functions that Return Functions</h4>
+
+            <h3>Closures</h3>
+            <p>A reference to a variable that was created inside the scope of another function but is then kept alive and used in another part of the program.</p>
+            <p>When you make a function that returns a function, the new function will still have access to variables it needs from its outer environment.</p>
+
+            <h4>Generators</h4>
+            <p>ES6 Introduced generators.</p>
+            <p>Special functions used to produce iterators that maintain the state of a value.</p>
+            <p>Define with * after functino declaration.</p>
+            <p>When you call a generator, it doesn't run the code in the function, but it returns a generator object that can be used to create an iterator that implements a next() method that returns a value every time the next() method is caled.</p>
+            <p>yield keyword: used to return value for generator function.</p>
+            <p>the state of the yield value is remembered next time it is called.</p>
+
+            <h3>Functional Programming</h3>
+            <h4>Pure Functions</h4>
+            <ol>
+                <li>The return value of a pure function depends only on values given as args.</li>
+                <li>There are not sideeffects that change data elsewhere in the program from one function. Only returns new data, doesn't alter old data.</li>
+                <li>Refrential transparency: given the same arguments, it will return the same things.</li>
+            </ol>
+            <p>All functions must have arguments and return value.</p>
+            <p>Using const to declare variables will help you avoid destructive data transformations.</p>
+
+            <h4>Higher Order Functions</h4>
+            <p>Accept as argument or return another function.</p>
+
+            <h4>Curryings</h4>
+            <p>When not all arguments are supplied to the function, so it returns another function that retains arguments already provided</p>
+
+
+
+        </section>
+        <section>
+            <h2>Chapter 13: AJAX</h2>
+            <p>Allows web pages to communicate asynchronously with server</p>
+            <p>Dynamic applications</p>
+
+            <h3>Clients and Servers</h3>
+            <p>JS is a client side language originally: runs in the browser. Ajax lets JS to request resources from server for client.</p>
+            <p>Use Ajax to reload part of the page without having to refresh the whole page.</p>
+
+            <h3>The Fetch API</h3>
+            <p>Uses promises to avoid callback hell.</p>
+
+            <h4>Basic Usage</h4>
+            <p>fetch() method: one arg: url.</p>
+
+            <h4>Response Interface</h4>
+            <p>Response objects have properties and methods to help process it</p>
+            <p>ok property checks if it was successful.</p>
+            <p>ok returns true if the status is between 200 and 299</p>
+            <p>statusText property returns status message</p>
+            <p>Other properties include headers, url, redirected, type</p>
+
+            <h4>Redirects</h4>
+            <p>redirect() method can use to redirect to another url.</p>
+
+            <h4>Text Responses</h4>
+            <p>text() methdo turns response text to a string.</p>
+
+            <h4>File Responses</h4>
+            <p>blob() is used to read a file of raw data (image, spreadsheet)</p>
+            <p>Returns promise resolving with blob object.</p>
+
+            <h4>JSON Responses</h4>
+            <p>json() method turns json data to js object</p>
+
+            <h4>Creating Response Objects</h4>
+            <p>response objects have a constructor function</p>
+
+            <h4>Request Interface</h4>
+            <p>Make a request object with request constructor</p>
+            <p>Properties: url, headers, mode, cache, credentials, redirect</p>
+            <p>Make your own request and use it as a parameter of fetch()</p>
+
+            <h4>Headers Interface</h4>
+            <p>Contains additional info, like filetype, cookie info, etc.</p>
+            <p>Create headers object with Headers() constructor function</p>
+            <p>has() argument checks if headers contains a particular argument</p>
+            <p>get() returns value of a header</p>
+            <p>set() updates existing header</p>
+            <p>append() adds a new header</p>
+            <p>delete() removes a header</p>
+
+            <h3>Receiving Information</h3>
+
+            <h3>Sending Information</h3>
+
+            <h3>FormData</h3>
+            <p>Create FormData with constructor function</p>
+            
+        </section>
+    </main>
+
+    
+    <script src="../js/links.js"></script>
+    <script src="../js/createNav.js"></script>
+
+</body>
+</html>
