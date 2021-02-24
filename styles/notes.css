@@ -12,6 +12,7 @@ main{
 
 h1{
     font-size: 2em;
+    text-transform: capitalize;
 }
 
 h2{

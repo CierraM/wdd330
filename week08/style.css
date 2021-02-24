@@ -1,0 +1,296 @@
+.box{
+    position: relative;
+    border: 1px solid black;
+    min-height: 300px;
+    height: 100%;
+    padding: 20px;
+}
+
+/* Make the small ball on the right roll to the right when the large one hits it. */
+.anim:active .ball-one {
+    left: 150px;
+    transition: left .5s ease-in;
+}
+
+
+.anim:active .ball-two {
+    /* Hint: manipulate margin-left to roll it, just like with the ball-one above. */
+
+    /* Double hint: Don't forget about transition-delay! */
+    margin-left: 400px;
+    transition: margin 1s ease-out .5s;
+
+}
+
+
+/* 
+================================
+Necessary CSS Below-- no need to edit */
+
+.anim {
+    position: relative;
+}
+
+.ball-one {
+    background: #ff97C0;
+    border-radius: 50%;
+    position: absolute;
+    top: 100px;
+    left: 0px;
+    width: 200px;
+    height: 200px;
+}
+
+.ball-two {
+    background: #0097C0;
+    border-radius: 50%;
+    position: absolute;
+    top: 200px;
+    left: 300px;
+    width: 100px;
+    height: 100px;
+}
+
+.red {
+    width: 100px;
+    height: 100px;
+    background: red;
+
+}
+
+.red:hover {
+    width: 300px;
+	transition: width .5s ease-in-out;
+}
+
+div.one {
+	
+    width: 100px;
+    height: 100px;
+    background: red;
+}
+
+div.two {
+    width: 100px;
+    height: 100px;
+    background: blue;
+	
+}
+
+div#main:hover .one  {
+    width: 300px;
+	transition: width 1s ease-out;
+}
+
+div#main:hover .two  {
+    width: 300px;
+	transition: width 1s ease-out 1s;
+}
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+}
+
+div#main {
+	position: relative;
+	height: 200px;
+	width: 200px;
+	margin: auto;
+}
+
+div#main .content {
+	position: absolute;
+	text-align:center;
+	width:200px;
+	top:50%;
+	transform:translate(0 -50%);
+	font-size:24pt;
+}
+
+div#main .topleft {
+	display: inline-block;
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	top: 0px;
+	left: 0px;
+	background: red;
+    transform-origin: left top;
+	transition: transform 1s ease-in-out;
+	
+}
+
+div#main .topright {
+	display: inline-block;
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	top: 0px;
+	left: 100px;
+	background: yellow;
+    transform-origin: right top;
+	transition: transform 1s ease-in-out;
+
+}
+
+div#main .bottomleft {
+	display: inline-block;
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	left: 0px;
+	top: 100px;
+	background: blue;
+    transform-origin: left bottom;
+	transition: transform 1s ease-in-out;
+
+}
+
+div#main .bottomright {
+	display: inline-block;
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	left: 100px;
+	top: 100px;
+	background: green;
+    transform-origin: right bottom;
+	transition: transform 1s ease-in-out;
+
+}
+
+div#main:hover .topleft {
+	transform: rotate(90deg);
+	transform-origin: left top;
+	transition: transform 1s ease-in-out;
+}
+div#main:hover .topright {
+	transform: rotate(-90deg);
+	transform-origin: right top;
+	transition: transform 1s ease-in-out;
+}
+div#main:hover .bottomleft {
+	transform: rotate(-90deg);
+	transform-origin: left bottom;
+	transition: transform 1s ease-in-out;
+}
+
+div#main:hover .bottomright {
+	transform: rotate(90deg);
+	transform-origin: right bottom;
+	transition: transform 1s ease-in-out;
+}
+
+.redbox {
+	width: 100px;
+	height: 100%;
+	background-color: red;
+	position: absolute;
+	left: 0px;
+	top:0px;
+    transition: width 2s ease-in-out;
+
+}
+
+.go{
+    width: 100%;
+    transition: width 2s ease-in-out;
+}
+
+.deck{
+    position: relative;
+    left: 50%;
+}
+
+.card {
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:inherit;
+	height: inherit;
+	transition: transform .5s linear;
+	transform-origin: left bottom;
+	border: none;
+	outline: none;
+}
+
+.card img {
+	width:inherit;
+	height:inherit;
+	border: none;
+	
+}
+
+.card:hover {
+	outline: 3px solid red;
+	
+}
+
+.deck:hover .card:nth-child(1) {
+	transform:rotate(-20deg);
+    transition: transform .5s linear;
+
+}
+
+.deck:hover .card:nth-child(1):hover {
+	transform:scale(1.2,1.2) rotate(-20deg);
+    
+}
+
+.deck:hover .card:nth-child(2) {
+	transform:rotate(-10deg);
+    transition: transform .5s linear;
+}
+
+.deck:hover .card:nth-child(2):hover {
+	transform:scale(1.2,1.2) rotate(-10deg);
+    
+}
+
+.deck:hover .card:nth-child(3) {
+	transform:rotate(0deg);
+    transition: transform .5s linear;
+}
+.deck:hover .card:nth-child(3):hover {
+	transform:scale(1.2,1.2) rotate(0deg);
+}
+
+.deck:hover .card:nth-child(4) {
+	transform:rotate(10deg);
+    transition: transform .5s linear;
+}
+.deck:hover .card:nth-child(4):hover {
+	transform:scale(1.2,1.2) rotate(10deg);
+}
+
+.deck:hover .card:nth-child(5) {
+	transform:rotate(20deg);
+    transition: transform .5s linear;
+}
+.deck:hover .card:nth-child(5):hover {
+	transform:scale(1.2,1.2) rotate(20deg);
+}
+
+.canvas{
+    width: 90%;
+    border: 2px dotted black;
+    margin: 0 auto;
+}
+
+.mc{
+	display: flex;
+}
+
+.mc img{
+	width: 33%;
+}
+
+.mc img:hover{
+	cursor: grab;
+}
+
+.mc img:active{
+	cursor: grabbing;
+}
