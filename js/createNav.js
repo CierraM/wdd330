@@ -1,6 +1,7 @@
 
 const nav = document.querySelector('nav');
 const ul = document.createElement('ul');
+ul.classList.add('collapsed');
 
 let href= '../index.html';
 let li = document.createElement('li');
@@ -29,3 +30,7 @@ link.setAttribute('type', 'text/css');
 link.setAttribute('href', '../styles/notes.css');
 
 document.head.appendChild(link);
+
+ul.addEventListener('click', (event) =>{
+    ul.classList.toggle('collapsed');
+})

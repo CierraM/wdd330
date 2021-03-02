@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Week 09 Notes</title>
+</head>
+
+<body>
+    <nav></nav>
+    <main>
+        <h1>Week 09 Notes</h1>
+        <section>
+            <h2>The Window Object</h2>
+            <p>Every browser window, tab, popu, frame, and iframe has a window object.</p>
+            <p>In a browser environment, the browser object and the global object are the same thing.</p>
+            <p>Find the global object by using 'this' in a global scope.</p>
+
+            <h4>Going Global</h4>
+            <p>Global variables are properties of a global object.</p>
+            <p>Functions like parseInt() are methods of global object.</p>
+            <p>Except some of these are part of the number object now in es6.</p>
+            <p>window.alert, confirm, and prompt</p>
+            <p>Don't use these too much. Maybe to confirm if a user wants to delete a resource.</p>
+
+            <h4>Which Browser?</h4>
+            <p>accessing the navigator window property will return Navigator object, containing info about the browser.
+            </p>
+            <p>This is not reliable though.</p>
+
+            <h4>Location</h4>
+            <p>window.location returns an object with infor about the current page url.</p>
+            <p>href property retursn url. It can be rewritten to direct the page to a new url.</p>
+            <p>reload() method can force a page reload. Given parameter of true, it will reload from the server instead
+                of using cached page.</p>
+            <p>assign() will load another resource from url. replace() will do the same thing, but won't store it in
+                history.</p>
+
+            <h3>Browser History</h3>
+            <p>window.history lets you access history from previously visited pages in the current browser session.
+                different from html5 history api.</p>
+            <p>window.history.go() is used to go to a specific page, 0 is the current page</p>
+
+            <h3>Controlling Windows</h3>
+            <p>Use window.open(url, title, attributes) lets you open a new window.</p>
+            <button onclick="openWindow()">Open a new window</button>
+            <p>window.moveTo(), move the window to the top-left corner of screen.</p>
+            <p>Popups are very annoying</p>
+
+            <h3>Screen Information</h3>
+            <p>find info about the screen width and height</p>
+
+            <h3>The Document Object</h3>
+            <p>Every window contains a document</p>
+            <p>document.write() puts some text on the page, replacing the whole document if there is stuff there</p>
+            <p>You can use document.write() in a script tag to inject a string into markup</p>
+
+            <h4>Cookies</h4>
+            <p>small files saved locally on a user's computer</p>
+            <p>Used to remember things about previous visits to a page</p>
+            <p>cookies are often replaced by localstorage</p>
+            <p>Still used to pass info between client and server on every https request</p>
+            <p>Cookie example: "name=Superman; hero=true; city=Metropolis"</p>
+            <p>In EU you must ask permission before setting cookies</p>
+
+            <h4>Creating Cookies</h4>
+            <p>put the cookie in the cookie jar.</p>
+
+
+            <h4>Cookie expiry dates</h4>
+            <p>cookies are session cookies by default.</p>
+            <p>But you can add an expiration date to make them last longer</p>
+
+            <h4>The path and domain of cookies</h4>
+            <p>By default, cookies can only be read by pages inside the same directory and domain as the file was set.
+                But you can change the path so that any page in the root directory can read the cookie.</p>
+
+            <h4>Secure cookies</h4>
+            <p>Add 'secure to the end of a cookie to make sure it's only transmitted over https</p>
+
+            <h4>Deleting Cookies</h4>
+            <p>You must set it to expire in the past to remove a cookie.</p>
+
+            <h3>Timing Functions</h3>
+            <p>setTimeout takes callback as first parm, num of milliseconds as second parm</p>
+            <p>setInterval repeatedly calls the callback every given number of milliseconds</p>
+            <p>Careful about using 'this' in timing methods. Binding is to the window, not the method's object</p>
+
+            <h4>Animation</h4>
+            <p>You can use the timing function to animate elements on page</p>
+            <div id="square"></div>
+            <button onclick="animateItBetter()">Make the square rotate</button>
+
+            <h4>requestAnimationFrame</h4>
+            <p>Much smoother animation performance than using timeout for animation</p>
+
+        </section>
+        <section>
+            <h2>HTML5 APIs</h2>
+
+            <h3>The data Attribute</h3>
+            <p>Used for embedding data using custom attributes that are ignored by the browser</p>
+            <div data-powers='flight superSpeed' data-rating='5' data-user='DAZ'>They are used by javascript, not the
+                browser</div>
+            <p>Each element has a dataset property that can be used to acces data attributes</p>
+            <div id='hero' data-powers='flight superSpeed'>
+                Superman
+            </div>
+
+            <h3>HTML5 api's</h3>
+            <p>Use feature detection before using api's</p>
+
+            <h4>Web storages</h4>
+            <p>different from cookies because:</p>
+            <ul>
+                <li>information is not shared with the server on every request</li>
+                <li>Information is available on multiple windows of the browser for the same domain</li>
+                <li>Storage capacity limit is larger than cookies</li>
+                <li>Data does not automatically expire.</li>
+            </ul>
+            <p>Local storage and session storage</p>
+            <p>Setting something to local storage fires an event.</p>
+
+
+            <h4>Geolocation</h4>
+            <p>Obtain geographic position of device</p>
+            <p>Use to link to nearby places or measure the speed they are moving</p>
+            <p>navigator object has a method called getCurrentPosition() that returns position object to a callback
+                function</p>
+
+            <h4>Web Workers</h4>
+            <p>allows processes to be run in the background</p>
+            <p>don't let long scripts make your page unresponsive</p>
+
+            <button id='rainbow'>Change Color</button>
+            <form>
+                <label for='number'>Enter a Number to Factorize:</label>
+                <input id='number' type='number' name='number' min=1 value='20'>
+                <button type='submit'>Submit</button>
+            </form>
+            <div id='output'></div>
+
+            <h4>Websockets</h4>
+            <p>Allows two way server communication: push messaging</p>
+            <p>When websocket successfully connects to a url, it fires an event called 'open'</p>
+            <form>
+                <label for='message'>Enter a Message:</label>
+                <input type='text' name='message'>
+                <button type='submit'>Submit</button>
+            </form>
+            <div id="newOutput"></div>
+
+            <h4>Notifications</h4>
+            <p>You need permission to use notifications.</p>
+            <p>notifications have events to react to, like click, and close.</p>
+            <p>You can open a new window when they click on it.</p>
+
+            <h4>Multimedia</h4>
+            <p>audio and video html tags</p>
+            <p>Methods that go with them to set controls, etc.</p>
+
+            <h4>Other api's.</h4>
+            <p>There are so many more useful things out there.</p>
+
+            <h3>Shims and Polyfills</h3>
+            <p>shims and polyfills fill in the code for you when it's not working natively on the browser.</p>
+        </section>
+    </main>
+
+    <script src="./script.js"></script>
+    <script src="../js/links.js"></script>
+    <script src="../js/createNav.js"></script>
+</body>
+
+</html>

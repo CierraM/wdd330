@@ -62,3 +62,20 @@ nav ul li:active{
 .question{
     color: red;
 }
+
+.collapsed{
+    height: 34px;
+    transition: height 1s ease-in-out;
+}
+
+.collapsed * {
+    display: none;
+}
+
+.collapsed::after{
+    content: "Menu";
+    color: white;
+    border: 2px solid white;
+    padding: 5px;
+
+}

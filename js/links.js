@@ -1,7 +1,6 @@
-const links = [
-    {
-    label: "Week 01 Notes",
-    url: "./week01/index.html"
+const links = [{
+        label: "Week 01 Notes",
+        url: "./week01/index.html"
     },
     {
         label: "Week 02 Notes",
@@ -39,11 +38,11 @@ const links = [
         label: "Week 05 Team Activity",
         url: "week05/team-activity.html"
     },
-    { 
+    {
         label: "Week 07 Notes",
         url: "week07/index.html"
     },
-    { 
+    {
         label: "Week 07 Team Activity",
         url: "week07/team-activity/hiking-complete.html"
     },
@@ -51,9 +50,13 @@ const links = [
         label: "Week 08 Notes",
         url: "week08/index.html"
     },
-    { 
+    {
         label: "Week 08 Team Activity",
         url: "week08/team-activity/index.html"
-    }   
-    
+    },
+    {
+        label: "Week 09 Notes",
+        url: "week09/index.html"
+    }
+
 ];
