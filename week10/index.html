@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Week 10 Notes</title>
+</head>
+
+<body>
+    <nav></nav>
+    <main>
+        <h1>Week 10 Notes</h1>
+        <section>
+            <h2>MDN: Validating Forms</h2>
+            <p>Client side validation is for user experience. Server side validation is for security.</p>
+            <h3>Built in form validation</h3>
+            <p>Great performance, easy to use, but not customizable.</p>
+            <p>Html form controls</p>
+            <ul>
+                <li>required</li>
+                <li>minlength and maxlength (for strings)</li>
+                <li>min and max (for numerical inputs)</li>
+                <li>type</li>
+                <li>pattern (regex)</li>
+            </ul>
+            <p>CSS pseudoclasses for form validation:</p>
+            <ul>
+                <li>:valid</li>
+                <li>:invalid</li>
+                <li>:out-of-range</li>
+            </ul>
+
+            <form>
+                <div>
+                    <label for="choose">Would you prefer a banana or a cherry?</label>
+                    <input type="text" id="choose" name="i_like" required minlength="6" maxlength="6">
+                </div>
+                <div>
+                    <label for="number">How many would you like?</label>
+                    <input type="number" id="number" name="amount" value="1" min="1" max="10">
+                </div>
+                <div>
+                    <button>Submit</button>
+                </div>
+            </form>
+
+            <h3>Form Validation with JavaScript</h3>
+            <p>Constraint Validation API: methods and properties you can use for validation</p>
+            <a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/Constraint_validation">https://developer.mozilla.org/en-US/docs/Web/API/Constraint_validation</a>
+            <p>Properties for form element interfaces:</p>
+            <ul>
+                <li>validationMessage: a message describing what validation constraints the control doesn't satisfy</li>
+                <li>validity: returns ValidityState object with properties about the validity state of the element</li>
+            </ul>
+            <p>checkValidity() returns true if there is not validity problems</p>
+            <p>setCustomValidity(message) add a custom error message</p>
+            <p>Custom error messages are must common use of constraint validation api.</p>
+            <form>
+                <label for="mail">I would like you to provide me with an e-mail address:</label>
+                <input type="email" id="mail" name="mail">
+                <button>Submit</button>
+            </form>
+            <form novalidate>
+                <p>
+                  <label for="mail">
+                    <span>Please enter an email address:</span>
+                    <input type="email" id="mail" name="mail" required minlength="8">
+                    <span class="error" aria-live="polite"></span>
+                  </label>
+                </p>
+                <button>Submit</button>
+              </form>
+              <p>novalidate attribute prevents the form from showing default error messages</p>
+        </section>
+        <section>
+            <h2>MDN: USing Fetch</h2>
+            <p>Headers: for performing actions on the request</p>
+            <p>response types: basic, cors, opaque. Indicate where theresource has come from and how to treat the response</p>
+            <p>basic: came from same origin, no restrictions.</p>
+            <p>cors: came from another origin and has cors headers. </p>
+            <p>opage: came from a different origin, no cors headers. Can't check if the request was successful.</p>
+            <p>You can define a mode for fetch requests, so that only certain types will resolve.</p>
+
+            <p>Body is used for post requests. Set method and body parameters.</p>
+            
+        </section>
+    </main>
+
+
+    <script src="../js/links.js"></script>
+    <script src="../js/createNav.js"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>
