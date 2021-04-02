@@ -73,6 +73,10 @@ const links = [{
     {
         label: "Week 11 Team Activity",
         url: "week11/team-activity/client/week11.html"
+    },
+    {
+        label: "Final Project: Cookbook app",
+        url: "https://cierram.github.io/cookbook-app/"
     }
 
 ];
