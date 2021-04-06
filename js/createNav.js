@@ -12,7 +12,10 @@ li.appendChild(a);
 ul.appendChild(li);
 
 links.map( link =>{
-    let href= "." + link.url;
+    let href= "../" + link.url;
+    if (link.url == "https://cierram.github.io/cookbook-app/") {
+        href = link.url
+    }
     let li = document.createElement('li');
     let a = document.createElement('a');
     a.textContent = link.label;
@@ -21,6 +24,7 @@ links.map( link =>{
     ul.appendChild(li);
     
 })
+
 
 nav.appendChild(ul);
 
