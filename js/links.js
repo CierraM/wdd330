@@ -1,38 +1,38 @@
 const links = [{
         label: "Week 01 Notes",
-        url: "./week01/index.html"
+        url: "week01/index.html"
     },
     {
         label: "Week 02 Notes",
-        url: "./week02/index.html"
+        url: "week02/index.html"
     },
     {
         label: "Week 02 Team Activity",
-        url: "./week02/team-activity-2.html"
+        url: "week02/team-activity-2.html"
     },
     {
         label: "Week 03 Notes",
-        url: "./week03/index.html"
+        url: "week03/index.html"
     },
     {
         label: "Week 03 Team Activity",
-        url: "./week03/team-activity.html"
+        url: "week03/team-activity.html"
     },
     {
         label: "Week 04 Notes",
-        url: "./week04/index.html"
+        url: "week04/index.html"
     },
     {
         label: "Tic Tac Toe",
-        url: "./week04/tictactoe.html"
+        url: "week04/tictactoe.html"
     },
     {
         label: "Week 05 Notes",
-        url: "./week05/index.html"
+        url: "week05/index.html"
     },
     {
         label: "Contacts App",
-        url: "./contacts-app/index.html"
+        url: "contacts-app/index.html"
     },
     {
         label: "Week 05 Team Activity",
@@ -44,7 +44,7 @@ const links = [{
     },
     {
         label: "Week 07 Team Activity",
-        url: "week07/team-activity/hiking-complete.html"
+        url: "week07/hiking-complete.html"
     },
     {
         label: "Week 08 Notes",
@@ -52,7 +52,7 @@ const links = [{
     },
     {
         label: "Week 08 Team Activity",
-        url: "week08/team-activity/index.html"
+        url: "week08/team-activity.html"
     },
     {
         label: "Week 09 Notes",
@@ -60,7 +60,7 @@ const links = [{
     },
     {
         label: "Week 09 Team Activity",
-        url: "week09/team-activity/index-START.html"
+        url: "week09/index-START.html"
     },
     {
         label: "Week 10 Notes",
@@ -68,11 +68,11 @@ const links = [{
     },
     {
         label: "Week 10 Team Activity",
-        url: "week10/team-activity/team-activity.html"
+        url: "week10/team-activity.html"
     },
     {
         label: "Week 11 Team Activity",
-        url: "week11/team-activity/client/week11.html"
+        url: "week11/client/week11.html"
     },
     {
         label: "Final Project: Cookbook app",
